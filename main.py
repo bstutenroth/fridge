@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 from google.appengine.ext import ndb
+from food import User
 from food import Food
 import datetime
 
@@ -29,14 +30,13 @@ class NewFoodHandler(webapp2.RequestHandler):
 
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-        food1 = Food(name='allison', foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
-        key=food1.put()
+        brenna=User(name='brenna')
+        brenna_key=brenna.put()
+        food1 = Food(user_key=brenna_key, foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
+        food1_key=food1.put()
         variables = {'food1': food1}
-        food_query = Food.query(Food.name == "allison")
-        food_list = food_query.fetch()
+        food_list = food1.query().fetch()
         self.response.write(food_list)
-
-
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
