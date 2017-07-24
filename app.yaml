@@ -12,6 +12,9 @@ handlers:
 - url: /
   static_dir: templates
 
+- url: /resources
+  static_dir: static_content
+
 - url: .*
   script: main.app
 
