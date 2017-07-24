@@ -6,6 +6,7 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class HomeHandler(webapp2.RequestHandler):
     def get (self):
+        print('hi')
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
 
