@@ -1,6 +1,9 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.ext import ndb
+from food import Food
+import datetime
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
@@ -27,8 +30,8 @@ class NewFoodHandler(webapp2.RequestHandler):
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
         calendar_template = env.get_template('calendar.html')
-        food1 = [{'username' : 'Allison', 'foodname' : 'Chicken', 'expire_date' : 'August 1'},
-                {'username' : 'Brenna', 'foodname':'Beef', 'expire_date' : 'July 25'}]
+        food1 = Food(name='brenna', foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
+        key=food1.put()
         variables = {'food1': food1}
         self.response.write(calendar_template.render(variables))
 
