@@ -25,10 +25,10 @@ class NewFoodHandler(webapp2.RequestHandler):
         self.response.out.write(submit_template.render(submitted_variables))
 
 class ListofExpirationHandler(webapp2.RequestHandler):
-    def post (self):
+    def get (self):
         calendar_template = env.get_template('calendar.html')
-        food1 = {'username' : Allison, 'foodname' : Chicken, 'expire_date' : str(8/1)}
-        self.response.out.write(submit_template.render())
+        food1 = {'username' : 'Allison', 'foodname' : 'Chicken', 'expire_date' : 'August 1'}
+        self.response.out.write(calendar_template.render(food1))
 
 
 app = webapp2.WSGIApplication([
