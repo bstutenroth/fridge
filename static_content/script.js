@@ -1,5 +1,5 @@
 function log(){
-  alert("you did it!")
+  alert("New food added!")
 }
 
 function button(){
