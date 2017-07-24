@@ -29,11 +29,12 @@ class NewFoodHandler(webapp2.RequestHandler):
 
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-        calendar_template = env.get_template('calendar.html')
-        food1 = Food(name='brenna', foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
+        food1 = Food(name='allison', foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
         key=food1.put()
         variables = {'food1': food1}
-        self.response.write(calendar_template.render(variables))
+        food_query = Food.query(Food.name == "allison")
+        food_list = food_query.fetch()
+        self.response.write(food_list)
 
 
 
