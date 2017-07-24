@@ -1,9 +1,12 @@
 <html>
 <body>
-  <li>
-    Welcome {{username}} !
+  <ul>
+    {% for food in food1 %}
+    <li>Welcome {{food.username}}!
     <br>
-    {{foodname}} : {{expire_date}}
+    {{food.foodname}} : {{food.expire_date}}
   </li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
