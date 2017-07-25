@@ -20,22 +20,27 @@ class NewFoodHandler(webapp2.RequestHandler):
         self.response.out.write(newfood_template.render())
 
     def post(self):
-        submit_template = env.get_template('submit.html')
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'category':self.request.get("category"),
-            'expire_date':self.request.get("expire_date")
+            'month':self.request.get("month")
+            'year':self.request.get("year")
+            'day':self.request.get("day")
         }
-        self.response.out.write(submit_template.render(submitted_variables))
+        brenna=User(name='brenna')
+        brenna_key=brenna.put()
+        food1 = Food(user_key=brenna_key, foodname= submitted_variables.foodname, month=submitted_variables.month,year=submitted_variables.year,day=submitted_variables.day)
+        food1_key=food1.put()
+        food_list = Food.query().fetch()
+        variables = {'food_list': food_list}
+        list_template = env.get_template('calendar.html')
+        self.response.write(list_template.render(variables))
 
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-        brenna=User(name='brenna')
-        brenna_key=brenna.put()
-        food1 = Food(user_key=brenna_key, foodname= 'beef', expire_date=datetime.datetime(2017, 7, 29))
-        food1_key=food1.put()
-        variables = {'food1': food1}
-        food_list = food1.query().fetch()
+
+        food_list = Food.query().fetch()
+        variables = {'food_list': food_list}
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(variables))
 

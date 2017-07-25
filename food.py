@@ -5,5 +5,7 @@ class User(ndb.Model):
 
 class Food(ndb.Model):
     foodname = ndb.StringProperty()
-    expire_date = ndb.DateTimeProperty()
+    month = ndb.IntegerProperty()
+    year = ndb.IntegerProperty()
+    day = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(User)

@@ -2,10 +2,10 @@
 <body>
   hello world
   <ul>
-    {% for food1 in food_list %}
-    <li>Welcome {{food1.name}}!
+    {% for food in food_list %}
+    <li>Welcome {{food.name}}!
     <br>
-    {{food1.foodname}} : {{food1.expire_date}}
+    {{food.foodname}} : {{food.expire_date}}
   </li>
     {% endfor %}
   </ul>
