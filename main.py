@@ -14,15 +14,20 @@ class HomeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
         if user:
-            email = user.nickname()
-
-            # current_user = User(user_id=email)
             greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
-
+        all_users_query = User.query()
+        all_users = all_users_query.fetch()
+        print user.nickname()
+        if user.nickname() not in all_users:
+            new_user = User(email=user.nickname())
+            new_user.put()
+            all_users_query = User.query()
+            all_users = all_users_query.fetch()
+        print all_users
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
@@ -44,7 +49,7 @@ class NewFoodHandler(webapp2.RequestHandler):
         }
         brenna=User(name='brenna')
         brenna_key=brenna.put()
-        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'))
+        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], date=submitted_variables['date'])
         food1_key=food1.put()
 
 #Displaying on Calendar Handler
