@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 from google.appengine.ext import ndb
+from google.appengine.api import users
 from food import User
 from food import Food
 import datetime
@@ -11,7 +12,15 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class HomeHandler(webapp2.RequestHandler):
     def get (self):
-        print('hi')
+        user = users.get_current_user()
+        if user:
+            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+                (user.nickname(), users.create_logout_url('/')))
+        else:
+            greeting = ('<a href="%s">Sign in or register</a>.' %
+                users.create_login_url('/'))
+
+        self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
 
@@ -44,7 +53,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 
         # make a query for the user whose email is current_user_emaul
         my_user_query =
-        # fetch
+        # # fetch
         my_user =
 
         #will use these two lines with datastore
