@@ -14,6 +14,7 @@ class HomeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
         if user:
+            current_user = User(user_id=user.nickname())
             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
                 (user.nickname(), users.create_logout_url('/')))
         else:
@@ -31,6 +32,7 @@ class NewFoodHandler(webapp2.RequestHandler):
 
 #Adding New Food to Datastore
     def post(self):
+        global user
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'category':self.request.get("category"),
@@ -40,7 +42,7 @@ class NewFoodHandler(webapp2.RequestHandler):
         }
         # brenna=User(name='brenna')
         # brenna_key=brenna.put()
-        food1 = Food(user_key=current_user.key, foodname= submitted_variables['foodname'], month=int(submitted_variables['month']),year=int(submitted_variables['year']),day=int(submitted_variables['day']))
+        food1 = Food(user_key=user.key, foodname= submitted_variables['foodname'], month=int(submitted_variables['month']),year=int(submitted_variables['year']),day=int(submitted_variables['day']))
         food1_key=food1.put()
 
 #Displaying on Calendar Handler
@@ -52,9 +54,9 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         current_user_email = current_user.nickname()
 
         # make a query for the user whose email is current_user_emaul
-        my_user_query =
+        # my_user_query =
         # # fetch
-        my_user =
+        # my_user =
 
         #will use these two lines with datastore
         food_list = Food.query(Food.user_key == my_user.key).fetch()
