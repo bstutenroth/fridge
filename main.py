@@ -32,6 +32,8 @@ class NewFoodHandler(webapp2.RequestHandler):
         brenna_key=brenna.put()
         food1 = Food(user_key=brenna_key, foodname= submitted_variables.foodname, month=submitted_variables.month,year=submitted_variables.year,day=submitted_variables.day)
         food1_key=food1.put()
+# don't think we need these next 4 lines, but didn't want to totally delete
+# before checking up with everyone
 #        food_list = Food.query().fetch()
 #        variables = {'food_list': food_list}
 #        list_template = env.get_template('calendar.html')
@@ -51,7 +53,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         temp_user = 'Brenna'
         temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
 
-        #will attempt to sort items in temp_food by expire date
+        #will attempt to sort temp items in temp_food by expire date
 
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(temp_variables))

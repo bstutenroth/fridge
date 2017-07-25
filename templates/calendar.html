@@ -10,6 +10,8 @@
   <body>
     Welcome {{ temp_user }}!<br>
     <ul>
+
+<!--this for loop will copy bullet point and horizontal line for ever item -->
       {% for food in temp_food %}
       <li>
         <h4>{{ food.expire_date }}</h4>
