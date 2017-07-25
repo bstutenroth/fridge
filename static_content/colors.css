@@ -23,7 +23,7 @@
 .logout{
   color: black;
   font-family: Poiret One;
-  margin-left: 50%;
+  margin-left: 48%;
   position: fixed;
   margin-top: 25%;
   font-size: 150%
@@ -34,7 +34,7 @@
 .login{
   color: black;
   font-family: Poiret One;
-  margin-left: 58%;
+  margin-left: 54%;
   position: fixed;
   margin-top: 25%;
   font-size: 150%
@@ -49,12 +49,12 @@
   padding-left: 6%;
   white-space: nowrap;
   font-size: 150%;
-  margin-left: 40%;
+  margin-left: 28%;
   margin-top: 7%
   /*justify-content: center;*/
 }
 .links a{
-  /*margin-left: 30px;*/
+  padding-left: 10%;
   color: black;
 }
 #newfood{
@@ -62,16 +62,19 @@
   font-family: Poiret One;
 }
 #formheader{
-  font-size: 400%;
+  font-size: 600%;
   text-align: center;
+  padding-bottom: 5%;
 }
 #foodname{
   font-size: 300%;
   margin-top: 3%;
+  margin-bottom: 3%;
   text-align: center;
 }
 #expd8{
   font-size: 300%;
+  padding-right: 3%;
   text-align: center;
 }
 .navFood{
@@ -89,4 +92,7 @@
   font-size: 100%;
   margin-right: 10%;
   padding-left: 10%;
+}
+#addPage{
+  color: white;
 }
