@@ -1,3 +1,41 @@
 #home{
-  background-color: #778899;
+  background-color: white;
+  background-image: url(file:///Users/demouser/Desktop/22809681b9b97deecfb80738b65227c0--cactus-illustration-flat-design-illustration.jpg);
+  margin-top: 200px;
+  background-size: 400px;
+  background-repeat: no-repeat;
+
 }
+.pages{
+color: black;
+padding-left: 50px;
+font-size: 30px;
+}
+
+#homeitle{
+  font-size: 75px;
+  color: black;
+  font-weight: bolder;
+}
+.links{
+  display: flex;
+  margin-top: -50px;
+  margin-right: -400px;
+  justify-content: center;
+}
+
+/*#hometitle{
+  color: #B22222;
+  display: flex;
+  margin-bottom: 350px;
+  border-style:double;
+  height: 300px;
+  width: 500px;
+  margin: 300px;
+  margin-left: 400px;
+  padding-top: 200px;
+  text-align: center;
+  justify-content: center;
+  border-width: 8px;
+  border-color: white;
+}*/
