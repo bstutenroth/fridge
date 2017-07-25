@@ -1,26 +1,32 @@
 #home{
   background-color: white;
-  background-image: url(file:///Users/demouser/Desktop/22809681b9b97deecfb80738b65227c0--cactus-illustration-flat-design-illustration.jpg);
-  margin-top: 200px;
-  background-size: 400px;
+  background-image: url(https://s-media-cache-ak0.pinimg.com/originals/6f/c6/40/6fc6408a64c31025f9884c920487172f.jpg);
+  position: absolute;
+  margin-top: 25px;
+  background-size: 600px;
   background-repeat: no-repeat;
 
 }
 .pages{
 color: black;
-padding-left: 50px;
-font-size: 30px;
+padding-left: 100px;
+font-size: 20px;
 }
 
-#homeitle{
-  font-size: 75px;
+#hometitle{
+  display: flex;
+  font-size: 200px;
+  margin-left: 750px;
+  margin-top: 75px;
+  position: absolute;
+  justify-content: center;
   color: black;
-  font-weight: bolder;
 }
 .links{
   display: flex;
-  margin-top: -50px;
-  margin-right: -400px;
+
+  /*margin-top: -150px;*/
+  margin-right: -1700px;
   justify-content: center;
 }
 
