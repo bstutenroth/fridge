@@ -15,10 +15,10 @@ class HomeHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         if user:
             current_user = User(user_id=user.nickname())
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+            greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
         else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
+            greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
 
         self.response.write('<html><body>%s</body></html>' % greeting)
