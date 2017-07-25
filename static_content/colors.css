@@ -3,30 +3,33 @@
 #home{
   background-color: white;
   background-image: url(https://s-media-cache-ak0.pinimg.com/originals/6f/c6/40/6fc6408a64c31025f9884c920487172f.jpg);
-  position: absolute;
-  margin-top: 25px;
-  background-size: 600px;
+  /*position: absolute;*/
+  margin-top: 3%;
+  background-size: 40%;
   background-repeat: no-repeat;
 
 }
 #hometitle{
   display: flex;
   font-family: Poiret One;
-  font-size: 200px;
-  margin-left: 750px;
-  margin-top: 75px;
+  font-size: 1000%;
+  white-space: nowrap;
+  margin-left: 40%;
+  margin-top: 10%;
   position: absolute;
-  justify-content: center;
+  /*justify-content: center;*/
   color: black;
 }
 .links{
   font-family: Poiret One;
   display: flex;
   color: black;
-  padding-left: 100px;
-  font-size: 20px;
-  margin-right: -1700px;
-  justify-content: center;
+  padding-left: 6%;
+  white-space: nowrap;
+  font-size: 150%;
+  margin-left: 500px;
+  margin-top: 7%
+  /*justify-content: center;*/
 }
 .links a{
   margin-left: 30px;
