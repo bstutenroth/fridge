@@ -23,8 +23,8 @@ class NewFoodHandler(webapp2.RequestHandler):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'category':self.request.get("category"),
-            'month':self.request.get("month")
-            'year':self.request.get("year")
+            'month':self.request.get("month"),
+            'year':self.request.get("year"),
             'day':self.request.get("day")
         }
         brenna=User(name='brenna')
@@ -38,7 +38,6 @@ class NewFoodHandler(webapp2.RequestHandler):
 
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-
         food_list = Food.query().fetch()
         variables = {'food_list': food_list}
         list_template = env.get_template('calendar.html')
