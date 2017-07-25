@@ -12,9 +12,9 @@
     <ul>
       {% for food in food_list %}
       <li>
-        <h4>{{ food.expire_date }}</h4>
+        <h4>Expiration date: {{food.month}}/{{food.day}}/{{food.year}}
+</h4>
         Food Item: {{ food.foodname }}<br>
-        Expiration date: {{food.month}}/{{food.day}}/{{food.year}}
       </li>
       <hr>
       {% endfor %}

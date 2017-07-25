@@ -33,12 +33,6 @@ class NewFoodHandler(webapp2.RequestHandler):
         food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], month=int(submitted_variables['month']),year=int(submitted_variables['year']),day=int(submitted_variables['day']))
         food1_key=food1.put()
         self.redirect("/calendar")
-# don't think we need these next 4 lines, but didn't want to totally delete
-# before checking up with everyone
-#        food_list = Food.query().fetch()
-#        variables = {'food_list': food_list}
-#        list_template = env.get_template('calendar.html')
-#        self.response.write(list_template.render(variables))
 
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
