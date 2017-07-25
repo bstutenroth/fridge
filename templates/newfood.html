@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="resources/colors.css">
   </head>
   <body>
-    <h1 id = 'formheader'>What did you purchase?</h1>
+    <div class="navFood">
+      <!-- <ul> -->
+        <a method="get" href="/newfood">Add New Food</a>
+        <a href="">My Calendar</a>
+        <a href="">My Fridge</a>
+      <!-- </ul> -->
+    </div>
     <hr>
+    <h1 id = 'formheader'>What did you purchase?</h1>
     <form action="" method="post"><div id = "foodname" >
       Food Name:
     <input type="text" name="foodname"> </div><br>
@@ -19,7 +26,7 @@
       <input type="radio" name="category" value="produce">Produce
       <input type="radio" name="category" value="dairy">Dairy
       <input type="radio" name="category" value="other">Other --->
-      <br>
+      <br><div id  = "expd8">
       When does your food expire?<br>
       <input type="date" name="expiredate" min="2017-01-01">
       <!--Expiration Month:
