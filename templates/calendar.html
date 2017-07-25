@@ -12,9 +12,9 @@
     <ul>
       {% for food in temp_food %}
       <li>
-        <h4>{{ food.foodname }}</h4>
-        Category: {{ food.category }} <br>
-        Expiration Date: {{ food.expire_date }}
+        <h4>{{ food.expire_date }}</h4>
+        Food Item: {{ food.foodname}}<br>
+        Category: {{ food.category }}
       </li>
       {% endfor %}
     </ul>

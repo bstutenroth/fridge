@@ -40,8 +40,10 @@ class NewFoodHandler(webapp2.RequestHandler):
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
+        #will use these two lines with datastore
         food_list = Food.query().fetch()
         variables = {'food_list': food_list}
+
         #temp variable list to display on calendar while waiting on datastore
         temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':'August 1'},
         {'foodname':'Milk', 'category':'Dairy', 'expire_date':'July 30'},
