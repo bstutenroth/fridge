@@ -54,9 +54,19 @@
   /*justify-content: center;*/
 }
 .links a{
-  margin-left: 30px;
+  /*margin-left: 30px;*/
   color: black;
 }
 #newfood{
   background-color: #DB7093;
+  font-family: Poiret One;
+}
+#formheader{
+  font-size: 400%;
+  text-align: center;
+}
+#foodname{
+  font-size: 300%;
+  margin-top: 3%;
+  text-align: center;
 }
