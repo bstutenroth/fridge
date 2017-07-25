@@ -5,10 +5,6 @@ function associate_events(){
 
 $(document).ready(associate_events);
 
-function log(){
-  alert("New food added!");
-}
-
 //when clicking submit button, check
 function button(){
   window.alert("New food recorded!");

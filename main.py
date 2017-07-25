@@ -45,11 +45,14 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         variables = {'food_list': food_list}
 
         #temp variable list to display on calendar while waiting on datastore
-        temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':'August 1'},
-        {'foodname':'Milk', 'category':'Dairy', 'expire_date':'July 30'},
-        {'foodname':'Grapes', 'category':'Fruit', 'expire_date':'July 28'}]
+        temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':datetime.date(2017,8,1)},
+        {'foodname':'Milk', 'category':'Dairy', 'expire_date':datetime.date(2017,7,31)},
+        {'foodname':'Grapes', 'category':'Fruit', 'expire_date':datetime.date(2017,7,28)}]
         temp_user = 'Brenna'
         temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
+
+        #will attempt to sort items in temp_food by expire date
+
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(temp_variables))
 

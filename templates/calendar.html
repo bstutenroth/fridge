@@ -5,17 +5,18 @@
     <link rel="stylesheet" href="resources/colors.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="resources/script.js"></script>
-    <title>New Food!</title>
+    <title>My Calendar</title>
   </head>
   <body>
-    Welcome {{ temp_user }}!
+    Welcome {{ temp_user }}!<br>
     <ul>
       {% for food in temp_food %}
       <li>
         <h4>{{ food.expire_date }}</h4>
-        Food Item: {{ food.foodname}}<br>
+        Food Item: {{ food.foodname }}<br>
         Category: {{ food.category }}
       </li>
+      <hr>
       {% endfor %}
     </ul>
   </body>
