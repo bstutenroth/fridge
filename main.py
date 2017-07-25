@@ -36,7 +36,8 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         food1_key=food1.put()
         variables = {'food1': food1}
         food_list = food1.query().fetch()
-        self.response.write(food_list)
+        list_template = env.get_template('calendar.html')
+        self.response.write(list_template.render(variables))
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
