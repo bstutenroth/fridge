@@ -20,6 +20,28 @@
   /*justify-content: center;*/
   color: black;
 }
+.logout{
+  color: black;
+  font-family: Poiret One;
+  margin-left: 50%;
+  position: fixed;
+  margin-top: 25%;
+  font-size: 150%
+}
+.logout a{
+  color: black;
+}
+.login{
+  color: black;
+  font-family: Poiret One;
+  margin-left: 58%;
+  position: fixed;
+  margin-top: 25%;
+  font-size: 150%
+}
+.login a{
+  color: black;
+}
 .links{
   font-family: Poiret One;
   display: flex;
@@ -27,7 +49,7 @@
   padding-left: 6%;
   white-space: nowrap;
   font-size: 150%;
-  margin-left: 500px;
+  margin-left: 40%;
   margin-top: 7%
   /*justify-content: center;*/
 }

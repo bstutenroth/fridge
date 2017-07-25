@@ -14,10 +14,10 @@ class HomeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
         if user:
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+            greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
         else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
+            greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
 
         self.response.write('<html><body>%s</body></html>' % greeting)
@@ -52,9 +52,9 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         current_user_email = current_user.nickname()
 
         # make a query for the user whose email is current_user_emaul
-        my_user_query =
-        # # fetch
-        my_user =
+        # my_user_query =
+        # # # fetch
+        # my_user =
 
         #will use these two lines with datastore
         food_list = Food.query(Food.user_key == my_user.key).fetch()
