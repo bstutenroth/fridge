@@ -19,6 +19,7 @@ class NewFoodHandler(webapp2.RequestHandler):
         newfood_template = env.get_template('newfood.html')
         self.response.out.write(newfood_template.render())
 
+#Adding New Food to Datastore
     def post(self):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
@@ -31,17 +32,24 @@ class NewFoodHandler(webapp2.RequestHandler):
         brenna_key=brenna.put()
         food1 = Food(user_key=brenna_key, foodname= submitted_variables.foodname, month=submitted_variables.month,year=submitted_variables.year,day=submitted_variables.day)
         food1_key=food1.put()
-        food_list = Food.query().fetch()
-        variables = {'food_list': food_list}
-        list_template = env.get_template('calendar.html')
-        self.response.write(list_template.render(variables))
+#        food_list = Food.query().fetch()
+#        variables = {'food_list': food_list}
+#        list_template = env.get_template('calendar.html')
+#        self.response.write(list_template.render(variables))
 
+#Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
         food_list = Food.query().fetch()
         variables = {'food_list': food_list}
+        #temp variable list to display on calendar while waiting on datastore
+        temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':'August 1'},
+        {'foodname':'Milk', 'category':'Dairy', 'expire_date':'July 30'},
+        {'foodname':'Grapes', 'category':'Fruit', 'expire_date':'July 28'}]
+        temp_user = 'Brenna'
+        temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
         list_template = env.get_template('calendar.html')
-        self.response.write(list_template.render(variables))
+        self.response.write(list_template.render(temp_variables))
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),

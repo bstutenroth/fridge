@@ -1,13 +1,22 @@
+<!DOCTYPE html>
 <html>
-<body>
-  hello world
-  <ul>
-    {% for food in food_list %}
-    <li>Welcome {{food.name}}!
-    <br>
-    {{food.foodname}} : {{food.expire_date}}
-    </li>
-    {% endfor %}
-  </ul>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="resources/colors.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="resources/script.js"></script>
+    <title>New Food!</title>
+  </head>
+  <body>
+    Welcome {{ temp_user }}!
+    <ul>
+      {% for food in temp_food %}
+      <li>
+        <h4>{{ food.foodname }}</h4>
+        Category: {{ food.category }} <br>
+        Expiration Date: {{ food.expire_date }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
 </html>
