@@ -44,7 +44,7 @@ class NewFoodHandler(webapp2.RequestHandler):
         }
         brenna=User(name='brenna')
         brenna_key=brenna.put()
-        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'))
+        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], date=submitted_variables['date'])
         food1_key=food1.put()
 
 #Displaying on Calendar Handler
