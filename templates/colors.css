@@ -24,24 +24,6 @@ font-size: 20px;
 }
 .links{
   display: flex;
-
-  /*margin-top: -150px;*/
   margin-right: -1700px;
   justify-content: center;
 }
-
-/*#hometitle{
-  color: #B22222;
-  display: flex;
-  margin-bottom: 350px;
-  border-style:double;
-  height: 300px;
-  width: 500px;
-  margin: 300px;
-  margin-left: 400px;
-  padding-top: 200px;
-  text-align: center;
-  justify-content: center;
-  border-width: 8px;
-  border-color: white;
-}*/
