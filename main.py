@@ -24,13 +24,13 @@ class NewFoodHandler(webapp2.RequestHandler):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'category':self.request.get("category"),
-            'month':self.request.get("month"),
-            'year':self.request.get("year"),
-            'day':self.request.get("day")
+            'month':str(self.request.get("month")),
+            'year':str(self.request.get("year")),
+            'day':str(self.request.get("day"))
         }
         brenna=User(name='brenna')
         brenna_key=brenna.put()
-        food1 = Food(user_key=brenna_key, foodname= submitted_variables.foodname, month=submitted_variables.month,year=submitted_variables.year,day=submitted_variables.day)
+        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], month=int(submitted_variables['month']),year=int(submitted_variables['year']),day=int(submitted_variables['day']))
         food1_key=food1.put()
 # don't think we need these next 4 lines, but didn't want to totally delete
 # before checking up with everyone
