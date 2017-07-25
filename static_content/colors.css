@@ -9,12 +9,6 @@
   background-repeat: no-repeat;
 
 }
-.pages{
-color: black;
-padding-left: 100px;
-font-size: 20px;
-}
-
 #hometitle{
   display: flex;
   font-family: Poiret One;
@@ -28,6 +22,13 @@ font-size: 20px;
 .links{
   font-family: Poiret One;
   display: flex;
+  color: black;
+  padding-left: 100px;
+  font-size: 20px;
   margin-right: -1700px;
   justify-content: center;
+}
+.links a{
+  margin-left: 30px;
+  color: black;
 }
