@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Neucha|Poiret+One');
 #home{
   background-color: white;
   background-image: url(https://s-media-cache-ak0.pinimg.com/originals/6f/c6/40/6fc6408a64c31025f9884c920487172f.jpg);
@@ -15,6 +17,7 @@ font-size: 20px;
 
 #hometitle{
   display: flex;
+  font-family: Poiret One;
   font-size: 200px;
   margin-left: 750px;
   margin-top: 75px;
@@ -23,6 +26,7 @@ font-size: 20px;
   color: black;
 }
 .links{
+  font-family: Poiret One;
   display: flex;
   margin-right: -1700px;
   justify-content: center;
