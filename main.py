@@ -51,6 +51,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         {'foodname':'Milk', 'category':'Dairy', 'expire_date':datetime.date(2017,7,31)},
         {'foodname':'Grapes', 'category':'Fruit', 'expire_date':datetime.date(2017,7,28)}]
         temp_user = 'Brenna'
+        temp_food.sort(key=lambda item:item['expire_date'], reverse=False)
         temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
 
         #will attempt to sort temp items in temp_food by expire date
