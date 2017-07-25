@@ -32,6 +32,7 @@ class NewFoodHandler(webapp2.RequestHandler):
         brenna_key=brenna.put()
         food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], month=int(submitted_variables['month']),year=int(submitted_variables['year']),day=int(submitted_variables['day']))
         food1_key=food1.put()
+        self.redirect("/calendar")
 # don't think we need these next 4 lines, but didn't want to totally delete
 # before checking up with everyone
 #        food_list = Food.query().fetch()
@@ -47,17 +48,17 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         variables = {'food_list': food_list}
 
         #temp variable list to display on calendar while waiting on datastore
-        temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':datetime.date(2017,8,1)},
-        {'foodname':'Milk', 'category':'Dairy', 'expire_date':datetime.date(2017,7,31)},
-        {'foodname':'Grapes', 'category':'Fruit', 'expire_date':datetime.date(2017,7,28)}]
-        temp_user = 'Brenna'
-        temp_food.sort(key=lambda item:item['expire_date'], reverse=False)
-        temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
+        #temp_food = [{'foodname':'Chicken', 'category':'Meat', 'expire_date':datetime.date(2017,8,1)},
+        #{'foodname':'Milk', 'category':'Dairy', 'expire_date':datetime.date(2017,7,31)},
+        #{'foodname':'Grapes', 'category':'Fruit', 'expire_date':datetime.date(2017,7,28)}]
+        #temp_user = 'Brenna'
+        #temp_food.sort(key=lambda item:item['expire_date'], reverse=False)
+        #temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
 
         #will attempt to sort temp items in temp_food by expire date
 
         list_template = env.get_template('calendar.html')
-        self.response.write(list_template.render(temp_variables))
+        self.response.write(list_template.render(variables))
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
