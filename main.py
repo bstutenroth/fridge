@@ -90,6 +90,22 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         foodtodelete.key.delete()
         self.redirect('/')
 
+class ListofExpirationHandler(webapp2.RequestHandler):
+    def get (self):
+        current_user_food = []
+        user = str(users.get_current_user())
+        all_users = User.query().fetch()
+        food_list = Food.query().fetch()
+        for usernames in all_users:
+            if user == usernames.email:
+                current_user_key = usernames.key
+        for fooditems in food_list:
+            if current_user_key == fooditems.user_key:
+                current_user_food.append(fooditems)
+        variables = {'username':user,'food_list':current_user_food}
+        list_template = env.get_template('myfridge.html')
+        self.response.write(list_template.render(variables))
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
