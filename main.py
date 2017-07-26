@@ -16,22 +16,25 @@ class HomeHandler(webapp2.RequestHandler):
         if user:
             greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
+            print user.nickname()
+            # checks if current user is already in datastore
+            checking_var = False
             all_users_query = User.query()
             all_users = all_users_query.fetch()
-            print user.nickname()
+            for get_user in all_users:
+                if user.nickname() == get_user.email:
+                    checking_var = True
+            # if current user isn't in datatstore, adds them to datastore
+            if checking_var == False:
+                new_user = User(email=user.nickname())
+                new_user.put()
+            all_users = User.query().fetch()
             print all_users
-            # for get_user in all_users:
-            #     if user.nickname() != get_user.email
-            #         pass
-            #     if else:
-            #         new_user = User(email=user.nickname())
-            #         new_user.put()
-            #         all_users_query = User.query()
-            #         all_users = all_users_query.fetch()
-            #         print all_users
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
+            all_users = User.query().fetch()
+            print all_users
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
@@ -46,15 +49,19 @@ class NewFoodHandler(webapp2.RequestHandler):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'category':self.request.get("category"),
-            #'month':self.request.get("month"),
-            #'year':self.request.get("year"),
-            #'day':self.request.get("day"),
             'date':self.request.get('expiredate')
         }
-        brenna=User(name='brenna')
-        brenna_key=brenna.put()
-        food1 = Food(user_key=brenna_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'))
-        food1_key=food1.put()
+        # stores new food item into datastore and associate them with current user
+        user = str(users.get_current_user())
+        all_users = User.query().fetch()
+        for usernames in all_users:
+            print usernames
+            if user == usernames.email:
+                print usernames.email
+                current_user_key = usernames.key
+                print current_user_key
+                add_food = Food(user_key=current_user_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d')).put()
+                break
 
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
@@ -69,10 +76,11 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         # # fetch
         # my_user =
 
-        # #will use these two lines with datastore
-        brenna=User(name='brenna')
-        brenna_key=brenna.put()
+        # will use these two lines with datastore
+        # brenna=User(name='brenna')
+        # brenna_key=brenna.put()
         food_list = Food.query().fetch()
+        print food_list
         variables = {'food_list': food_list}
 
         #temp variable list to display on calendar while waiting on datastore
