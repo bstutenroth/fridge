@@ -16,7 +16,7 @@
     </div>
     <hr class = "white">
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>
-      <div id = "ricardo">
+      <div id = "riccardo">
       {% for food in food_list %}
         <div id = "eachItem">
           <div id = "date"><h4>Expires on <br> {{ food.date }}</h4></div>
@@ -26,10 +26,15 @@
     </div>
       <br>
     <h3>Delete Items</h3>
-      <form action="" method="post">
+      <form action="" method="get">
+        <select name='deletelist'>
         {% for food in food_list %}
-        <label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+        <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
         {% endfor %}
+        </select>
+        <!-- {% for food in food_list %}
+        <label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+        {% endfor %} -->
       <input type="submit" value="Delete" />
     </form>
   </body>

@@ -144,7 +144,7 @@
   border: 1px solid;
   color: white;
 }
-#ricardo{
+#riccardo{
   display: flex;
   flex-wrap: wrap;
   margin-left: 12%;
@@ -157,4 +157,7 @@
 }
 #cat{
   margin-top: 2%;
+}
+#titanic{
+  float: none;
 }
