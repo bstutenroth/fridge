@@ -67,35 +67,20 @@ class NewFoodHandler(webapp2.RequestHandler):
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-        # find who's the current user
-        # current_user = users.get_current_user()
-        # current_user_id = current_user.id()
-        # current_user_email = current_user.nickname()
-
-        # make a query for the user whose email is current_user_emaul
-        # my_user_query =
-        # # fetch
-        # my_user =
-
-        # will use these two lines with datastore
-        # brenna=User(name='brenna')
-        # brenna_key=brenna.put()
+        current_user_food = []
+        user = str(users.get_current_user())
+        all_users = User.query().fetch()
         food_list = Food.query().fetch()
-        print food_list
-        variables = {'food_list': food_list}
-
-        #temp variable list to display on calendar while waiting on datastore
-        # temp_food = [{'foodname':'Chicken', 'date':datetime(2017,8,1)},
-        # {'foodname':'Milk', 'date':datetime(2017,7,28)},
-        # {'foodname':'Grapes', 'date':datetime(2017,7,31)}]
-        # temp_user = 'Brenna'
-        # #will attempt to sort temp items in temp_food by expire date
-
-        food_list.sort(key=lambda item:item.date, reverse=False)
-        # temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
+        for usernames in all_users:
+            if user == usernames.email:
+                current_user_key = usernames.key
+        for fooditems in food_list:
+            if current_user_key == fooditems.user_key:
+                current_user_food.append(fooditems)
+        current_user_food.sort(key=lambda item:item.date, reverse=False)
+        variables = {'food_list': current_user_food}
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(variables))
-        #self.response.write(food_list)
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
