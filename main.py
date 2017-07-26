@@ -99,8 +99,11 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 
     def post(self):
         idtodelete=self.request.get("deletelist")
-        foodtodelete=Food.query(Food.foodname==idtodelete).fetch()
-        foodtodelete.delete()
+        print idtodelete
+        foodtodelete=Food.query(Food.foodname == idtodelete).get()
+        print foodtodelete
+        foodtodelete.key.delete()
+        self.redirect('/')
 
 
 
