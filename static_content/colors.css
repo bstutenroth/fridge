@@ -96,3 +96,25 @@
 #addPage{
   color: white;
 }
+#calendar{
+  background-color: #f3e5ab;
+  font-family: Poiret One;
+
+}
+#welcomeCal{
+  font-size: 800%;
+  text-align: center;
+  margin-top: 2%;
+}
+#date{
+  border-style: double;
+  border-color: white;
+  width: 15%;
+  padding: 1%;
+  font-size: 250%;
+  border-spacing: 20%;
+}
+#item{
+  font-size: 400%;
+  text-align: center;
+}

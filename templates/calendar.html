@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id = "calendar">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="resources/colors.css">
@@ -8,15 +8,11 @@
     <title>My Calendar</title>
   </head>
   <body>
-    Welcome!<br>
+  <div id = "welcomeCal">  Welcome!</div><br>
     <ul>
       {% for food in food_list %}
-      <li>
-        <h4>Expiration date: {{ food.date }}
-</h4>
-        Food Item: {{ food.foodname }}<br>
-      </li>
-      <hr>
+        <div id = "date"><h4>Expiration date: {{ food.date }}</div></h4>
+        <div id = "item">Food Item: {{ food.foodname }}</div><br>
       {% endfor %}
 
     </ul>
