@@ -26,7 +26,7 @@
     </div>
       <br>
     <h3>Delete Items</h3>
-      <form action="" method="get">
+      <form action="" method="post">
         <select name='deletelist'>
         {% for food in food_list %}
         <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
