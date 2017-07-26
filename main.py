@@ -82,6 +82,13 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(variables))
 
+    def post(self):
+        idtodelete=self.request.get("deletelist")
+        foodtodelete=Food.query(Food.foodname==idtodelete).fetch()
+        foodtodelete.delete()
+
+
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
