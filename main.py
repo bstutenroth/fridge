@@ -81,10 +81,12 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         # {'foodname':'Grapes', 'date':datetime(2017,7,31)}]
         # temp_user = 'Brenna'
         # #will attempt to sort temp items in temp_food by expire date
-        # temp_food.sort(key=lambda item:item['date'], reverse=False)
+
+        food_list.sort(key=lambda item:item.date, reverse=False)
         # temp_variables = {'temp_user':temp_user, 'temp_food':temp_food}
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(variables))
+        #self.response.write(food_list)
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
