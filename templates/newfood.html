@@ -10,6 +10,7 @@
   <body>
     <div class="navFood">
       <!-- <ul> -->
+        <a href="/">Home</a>
         <a id = "addPage"method="get" href="/newfood">Add New Food</a>
         <a href="/calendar">My Calendar</a>
         <a href="/myfridge">My Fridge</a>
@@ -29,6 +30,15 @@
       <br><div id  = "expd8">
       When does your food expire?<br>
       <input type="date" name="expiredate" min="2017-01-01">
+      <br><div id  = "cat">
+      What category?<br></div>
+      <div class = "buttons">
+      <div><input type="radio" name="proButton" value="Produce">Produce<br></div>
+      <div><input type="radio" name="dairButton" value="Dairy">Dairy<br></div>
+      <div><input type="radio" name="driButton" value="Drink">Drinks<br></div>
+      <div><input type="radio" name="meButton" value="Meat">Meat<br></div>
+      <div><input type="radio" name="othButton" value="Other">Other<br></div>
+    </div>
       <!--Expiration Month:
       <select id="month" name="month">
         <option value="01">January</option>

@@ -8,10 +8,19 @@
     <title>My Calendar</title>
   </head>
   <body>
+    <div class="navCal">
+      <!-- <ul> -->
+        <a href="/">Home</a>
+        <a href="/newfood">Add New Food</a>
+        <a id = "addPage"method="get" href="/newfood">My Calendar</a>
+        <a href="/myfridge">My Fridge</a>
+      <!-- </ul> -->
+    </div>
+    <hr>
   <div id = "welcomeCal">  Welcome!</div><br>
-    <ul>
+    <ul id = "listExp">
       {% for food in food_list %}
-        <div id = "date"><h4>Expiration date: {{ food.date }}</div></h4>
+        <div id = "date"><h4>Expiration date: {{ food.date }}</h4></div>
         <div id = "item">Food Item: {{ food.foodname }}</div><br>
       {% endfor %}
 

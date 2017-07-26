@@ -7,7 +7,6 @@
   margin-top: 3%;
   background-size: 40%;
   background-repeat: no-repeat;
-
 }
 #hometitle{
   display: flex;
@@ -64,18 +63,20 @@
 #formheader{
   font-size: 600%;
   text-align: center;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 #foodname{
   font-size: 300%;
   margin-top: 3%;
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   text-align: center;
 }
 #expd8{
   font-size: 300%;
   padding-right: 3%;
   text-align: center;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
 }
 .navFood{
   font-family: Poiret One;
@@ -93,6 +94,22 @@
   margin-right: 10%;
   padding-left: 10%;
 }
+.navCal{
+  font-family: Poiret One;
+  display: flex;
+  color: black;
+  white-space: nowrap;
+  font-size: 150%;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.navCal a {
+  color: black;
+  font-size: 100%;
+  margin-right: 5%;
+  padding-left: 5%;
+}
 #addPage{
   color: white;
 }
@@ -106,15 +123,33 @@
   text-align: center;
   margin-top: 2%;
 }
+
 #date{
   border-style: double;
   border-color: white;
   width: 15%;
+  margin-left: 13%;
+  margin-right: -10%;
   padding: 1%;
   font-size: 250%;
-  border-spacing: 20%;
+  margin-top: 10%;
 }
 #item{
   font-size: 400%;
   text-align: center;
+  z-index: 4000;
+  margin-top: -10%;
+}
+hr{
+  border: 1px solid;
+  color: white;
+}
+.buttons{
+  display: flex;
+  margin-top: 2%;
+  font-size: 75%;
+  justify-content: center;
+}
+#cat{
+  margin-top: 2%;
 }
