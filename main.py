@@ -97,6 +97,13 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         self.response.write(list_template.render(variables))
         #self.response.write(food_list)
 
+    def post(self):
+        idtodelete=self.request.get("deletelist")
+        foodtodelete=Food.query(Food.foodname==idtodelete).fetch()
+        foodtodelete.delete()
+
+
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
