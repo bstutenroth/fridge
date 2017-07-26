@@ -62,6 +62,7 @@ class NewFoodHandler(webapp2.RequestHandler):
                 print current_user_key
                 add_food = Food(user_key=current_user_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d')).put()
                 break
+        self.redirect("/calendar")
 
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):

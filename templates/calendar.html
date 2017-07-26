@@ -23,7 +23,14 @@
         <div id = "date"><h4>Expiration date: {{ food.date }}</h4></div>
         <div id = "item">Food Item: {{ food.foodname }}</div><br>
       {% endfor %}
-
+      <br>
+    <h3>Delete Items</h3>
+      <select>
+        {% for food in food_list %}
+        <option value = {{food.foodname}}>{{food.foodname}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Delete" />
     </ul>
   </body>
 </html>
