@@ -5,14 +5,30 @@
 	<title>My Fridge</title>
 </head>
 <body>
-	<h1>My Fridge</h1>
-	<br>
-	<h2>Meat</h2>
-	
-	<h2>Dairy</h2>
-	<h2>Fruit</h2>
-	<h2>Vegetables</h2>
-	<h2>Bread</h2>
-	<h2>Other</h2>
+	<div class="navCal">
+			<a href="/">Home</a>
+			<a href="/newfood">Add New Food</a>
+			<a id = "addPage"method="get" href="/newfood">My Calendar</a>
+			<a href="/myfridge">My Fridge</a>
+	</div>
+	<hr>
+<div id = "welcomeCal">Welcome {{ username }}!</div><br>
+	<ul id = "listExp">
+		{% for food in food_list %}
+			<div id = "eachItem">
+				<div id = "date"><h4>{{ food.category }}</h4></div>
+				<div id = "category">{{ food.date }}</div>
+			  <div id = "item">{{ food.foodname }}</div><br>
+			</div>
+		{% endfor %}
+		<br>
+	<h3>Delete Items</h3>
+		<form action="" method="post">
+			{% for food in food_list %}
+			<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+			{% endfor %}
+		<input type="submit" value="Delete" />
+	</form>
+	</ul>
 </body>
 </html>
