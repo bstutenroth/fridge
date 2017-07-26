@@ -6,9 +6,6 @@ class User(ndb.Model):
 class Food(ndb.Model):
     foodname = ndb.StringProperty()
     date = ndb.DateProperty()
-    month = ndb.IntegerProperty()
-    year = ndb.IntegerProperty()
-    day = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(User)
     category = ndb.StringProperty()
     # categories: Meat, Dairy, Drinks, Produce, Other
