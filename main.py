@@ -90,7 +90,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         foodtodelete.key.delete()
         self.redirect('/')
 
-class ListofExpirationHandler(webapp2.RequestHandler):
+class FridgeHandler(webapp2.RequestHandler):
     def get (self):
         current_user_food = []
         user = str(users.get_current_user())
@@ -109,5 +109,6 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
-    ('/calendar', ListofExpirationHandler)
+    ('/calendar', ListofExpirationHandler),
+    ('/myfridge', FridgeHandler),
 ], debug=True)
