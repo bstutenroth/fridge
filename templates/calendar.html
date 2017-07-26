@@ -14,12 +14,17 @@
         <a id = "addPage"method="get" href="/newfood">My Calendar</a>
         <a href="/myfridge">My Fridge</a>
     </div>
-    <hr>
+    <hr class = "white">
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>
+    <ul id = "listExp">
+      <div id = "ricardo">
       {% for food in food_list %}
-        <div id = "eachItem"><div id = "date"><h4>Expires on {{ food.date }}</h4></div>
-        <div id = "item">{{ food.foodname }}</div><br>  </div>
+        <div id = "eachItem">
+          <div id = "date"><h4>Expires on <br> {{ food.date }}</h4></div>
+        <div id = "item">{{ food.foodname }}</div><br>
+       </div>
       {% endfor %}
+    </div>
       <br>
     <h3>Delete Items</h3>
       <form action="" method="post">
