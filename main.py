@@ -16,22 +16,25 @@ class HomeHandler(webapp2.RequestHandler):
         if user:
             greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
+            print user.nickname()
+            # checks if current user is already in datastore
+            checking_var = False
             all_users_query = User.query()
             all_users = all_users_query.fetch()
-            print user.nickname()
+            for get_user in all_users:
+                if user.nickname() == get_user.email:
+                    checking_var = True
+            # if current user isn't in datatstore, adds them to datastore
+            if checking_var == False:
+                new_user = User(email=user.nickname())
+                new_user.put()
+            all_users = User.query().fetch()
             print all_users
-            # for get_user in all_users:
-            #     if user.nickname() != get_user.email
-            #         pass
-            #     if else:
-            #         new_user = User(email=user.nickname())
-            #         new_user.put()
-            #         all_users_query = User.query()
-            #         all_users = all_users_query.fetch()
-            #         print all_users
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
+            all_users = User.query().fetch()
+            print all_users
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
