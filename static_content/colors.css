@@ -119,7 +119,7 @@
 
 }
 #welcomeCal{
-  font-size: 550%;
+  font-size: 400%;
   text-align: center;
   margin-top: 2%;
 }
@@ -147,7 +147,7 @@
 #ricardo{
   display: flex;
   flex-wrap: wrap;
-  margin-left: 12%;
+  margin-left: 15%;
 }
 .buttons{
   display: flex;
