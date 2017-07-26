@@ -123,8 +123,20 @@
   text-align: center;
   margin-top: 2%;
 }
-
+#eachItem{
+  border-style: double;
+  border-color: white;
+  width: 20%;
+  height: 20%;
+  
+}
 #date{
+  font-size: 200%;
+}
+#item{
+  font-size: 100%;
+}
+/*#date{
   border-style: double;
   border-color: white;
   width: 15%;
@@ -133,12 +145,12 @@
   padding: 1%;
   font-size: 250%;
   margin-top: 10%;
-}
-#item{
+}*/
+/*#item{
   font-size: 400%;
   text-align: center;
   z-index: 4000;
-  margin-top: -10%;
+  margin-top: -10%;*/
 }
 hr{
   border: 1px solid;
