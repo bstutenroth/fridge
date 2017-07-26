@@ -16,7 +16,6 @@
     </div>
     <hr>
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>
-    <ul id = "listExp">
       {% for food in food_list %}
         <div id = "eachItem"><div id = "date"><h4>Expires on {{ food.date }}</h4></div>
         <div id = "item">{{ food.foodname }}</div><br>  </div>
@@ -29,6 +28,5 @@
         {% endfor %}
       <input type="submit" value="Delete" />
     </form>
-    </ul>
   </body>
 </html>
