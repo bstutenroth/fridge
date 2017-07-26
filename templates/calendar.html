@@ -18,8 +18,8 @@
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>
     <ul id = "listExp">
       {% for food in food_list %}
-        <div id = "date"><h4>Expiration date: {{ food.date }}</h4></div>
-        <div id = "item">Food Item: {{ food.foodname }}</div><br>
+        <div id = "eachItem"><div id = "date"><h4>Expires on {{ food.date }}</h4></div>
+        <div id = "item">{{ food.foodname }}</div><br>  </div>
       {% endfor %}
       <br>
     <h3>Delete Items</h3>
