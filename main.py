@@ -48,9 +48,9 @@ class NewFoodHandler(webapp2.RequestHandler):
     def post(self):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
-            'date':self.request.get('expiredate')
+            'date':self.request.get('expiredate'),
+            'category':self.request.get('button')
         }
-        if self.request.get('button')
         # stores new food item into datastore and associate them with current user
         user = str(users.get_current_user())
         all_users = User.query().fetch()
@@ -60,7 +60,7 @@ class NewFoodHandler(webapp2.RequestHandler):
                 print usernames.email
                 current_user_key = usernames.key
                 print current_user_key
-                add_food = Food(user_key=current_user_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d')).put()
+                add_food = Food(user_key=current_user_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'), category=submitted_variables['category']).put()
                 break
         self.redirect("/")
 
