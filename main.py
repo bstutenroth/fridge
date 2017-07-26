@@ -48,9 +48,9 @@ class NewFoodHandler(webapp2.RequestHandler):
     def post(self):
         submitted_variables = {
             'foodname':self.request.get("foodname"),
-            'category':self.request.get("category"),
             'date':self.request.get('expiredate')
         }
+        if self.request.get('button')
         # stores new food item into datastore and associate them with current user
         user = str(users.get_current_user())
         all_users = User.query().fetch()
@@ -89,8 +89,6 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         print foodtodelete
         foodtodelete.key.delete()
         self.redirect('/')
-
-
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),

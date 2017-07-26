@@ -10,3 +10,6 @@ class Food(ndb.Model):
     year = ndb.IntegerProperty()
     day = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(User)
+    category = ndb.StringProperty()
+    # categories: Meat, Dairy, Drinks, Produce, Other
+    #case sensitive
