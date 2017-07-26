@@ -78,7 +78,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
             if current_user_key == fooditems.user_key:
                 current_user_food.append(fooditems)
         current_user_food.sort(key=lambda item:item.date, reverse=False)
-        variables = {'food_list': current_user_food}
+        variables = {'username':user,'food_list':current_user_food}
         list_template = env.get_template('calendar.html')
         self.response.write(list_template.render(variables))
 
