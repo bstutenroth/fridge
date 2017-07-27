@@ -107,26 +107,50 @@ class FridgeHandler(webapp2.RequestHandler):
         list_template = env.get_template('myfridge.html')
         self.response.write(list_template.render(variables))
 
+# def send_approved_mail(sender_address):
+#     message = mail.EmailMessage(sender="<brennastutenroth@gmail.com>",
+#         to="Brenna <brennastutenroth@gmail.com>",
+#         subject="My Fridge Daily Reminder",
+#         body="""Dear User:
+#         This is your daily reminder to check your items' expiration dates at
+#         http://my-fridge-174900.appspot.com
+#         - The My Fridge App Team""")
+#
+# class SendMailHandler(webapp2.RequestHandler):
+#     def get(self):
+#         send_approved_mail('{}@appspot.gserviceaccount.com'.format(
+#             app_identity.get_application_id()))
+#         self.response.content_type = 'text/plain'
+#         self.response.write('Sent test email.')
 def send_approved_mail(sender_address):
-    message = mail.EmailMessage(sender="<brennastutenroth@gmail.com>",
-                   to="Brenna <brennastutenroth@gmail.com>",
-                   subject="My Fridge Daily Reminder",
-                   body="""Dear User:
-This is your daily reminder to check your items' expiration dates at
+    # [START send_message]
+    message = mail.EmailMessage(
+        sender=sender_address,
+        subject="Your account has been approved")
+
+    message.to = "Albert Johnson <brennastutenroth@gmail.com>"
+    message.body = """Dear User:
+his is your daily reminder to check your items' expiration dates at
 http://my-fridge-174900.appspot.com
 - The My Fridge App Team
-""")
-class SendMailHandler(webapp2.RequestHandler):
+"""
+    message.send()
+    # [END send_message]
+
+
+class SendMessageHandler(webapp2.RequestHandler):
     def get(self):
         send_approved_mail('{}@appspot.gserviceaccount.com'.format(
             app_identity.get_application_id()))
         self.response.content_type = 'text/plain'
-        self.response.write('Sent test email.')
+        self.response.write('Sent an email reminder')
+
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
     ('/calendar', ListofExpirationHandler),
     ('/myfridge', FridgeHandler),
-    ('/send_mail', SendMailHandler)
+    # ('/send_mail', SendMailHandler)
+    ('/send_message', SendMessageHandler),
 ], debug=True)

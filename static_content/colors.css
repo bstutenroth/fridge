@@ -114,11 +114,12 @@
   color: white;
 }
 #fridge{
-  background-color: #93A36A;
+  /*background-color: #93A36A;*/
+  background-color: #90EE90;
   font-family: Poiret One;
 }
 #calendar{
-  background-color: #f3e5ab;
+  background-color: #48D1CC;
   font-family: Poiret One;
 }
 #welcomeCal{
@@ -163,4 +164,34 @@
 }
 #titanic{
   float: none;
+}
+/*#catOrganize{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}*/
+.headCat{
+  border-style: double;
+  border-color: white;
+  font-size: 400%;
+  padding: 2%;
+  width: 100%;
+  text-align: center;
+}
+.foodCat{
+  border-style: double;
+  border-color: white;
+  margin: 3%;
+  font-size: 200%;
+  width: 15%;
+  height: 15%;
+  text-align: center;
+  padding: 5%;
+  /*margin-left: 15%;*/
+}
+.shiftL{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 8%;
+  align-items:center;
 }

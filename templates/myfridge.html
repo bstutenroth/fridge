@@ -14,46 +14,47 @@
 			<a method="get" href="/calendar">My Calendar</a>
 			<a id = "addPage" href="/myfridge">My Fridge</a>
 	</div>
-	<hr>
+	<hr class = "white">
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>
-	<h2>Meat</h2>
-	{% for food in food_list %}
+	<div id = "catOrganize">
+	<h2 class = "headCat">Meat</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Meat' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
-	<h2>Dairy</h2>
-	{% for food in food_list %}
+	{% endfor %}</div>
+	<h2 class = "headCat">Dairy</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Dairy' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
-	<h2>Produce</h2>
-	{% for food in food_list %}
+	{% endfor %}</div>
+	<h2 class = "headCat">Produce</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Produce' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
-	<h2>Bread</h2>
-	{% for food in food_list %}
+	{% endfor %}</div>
+	<h2 class = "headCat">Bread</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Bread' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
-	<h2>Drinks</h2>
-	{% for food in food_list %}
+	{% endfor %}</div>
+	<h2 class = "headCat">Drinks</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Drinks' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
-	<h2>Other</h2>
-	{% for food in food_list %}
+	{% endfor %}</div>
+	<h2 class = "headCat">Other</h2>
+	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Other' %}
-			{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}}</div>
 		{% endif %}
-	{% endfor %}
+	{% endfor %}</div>
 	<br>
-
+</div>
 	<h3>Delete Items</h3>
 		<form action="" method="post">
 			<select name='deletelist'>
