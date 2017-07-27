@@ -9,35 +9,29 @@
   </head>
   <body>
     <div class="navCal">
-      <!-- <ul> -->
+        <div id = "welcomeCal">Welcome {{ username }}</div><br>
         <a href="/">Home</a>
         <a id = "addPage"method="get" href="/newfood">Add New Food</a>
         <a href="/calendar">My Calendar</a>
         <a href="/myfridge">My Fridge</a>
-      <!-- </ul> -->
     </div>
     <hr>
-    <h1 id = 'formheader'>What did you purchase?</h1>
+    <!-- <h1 id = 'formheader'>What did you purchase?</h1> -->
     <form action="" method="post"><div id = "foodname" >
       Food Name:
-    <input type="text" name="foodname"> </div><br>
-    <!---  Category:<br>
-      <input type="radio" name="category" value="meat">Meat
-      <input type="radio" name="category" value="drinks">Drinks
-      <input type="radio" name="category" value="produce">Produce
-      <input type="radio" name="category" value="dairy">Dairy
-      <input type="radio" name="category" value="other">Other --->
+    <input class = "box" type="text" name="foodname"> </div><br>
+
       <br><div id  = "expd8">
       When does your food expire?<br>
-      <input type="date" name="expiredate" min="2017-01-01">
+      <input class = "box"type="date" name="expiredate" min="2017-01-01">
       <br><div id  = "cat">
       What category?<br></div>
       <div class = "buttons">
-      <label><input type="radio" name="button" value="Produce">Produce<br></label>
-      <label><input type="radio" name="button" value="Dairy">Dairy<br></label>
-      <label><input type="radio" name="button" value="Drinks">Drinks<br></label>
-      <label><input type="radio" name="button" value="Meat">Meat<br></label>
-      <label><input type="radio" name="button" value="Bread">Bread<br></label>
+      <label><input type="radio" name="button" value="Produce">Produce<br></label>&nbsp;&nbsp;
+      <label><input type="radio" name="button" value="Dairy">Dairy<br></label>&nbsp;&nbsp;
+      <label><input type="radio" name="button" value="Drinks">Drinks<br></label>&nbsp;&nbsp;
+      <label><input type="radio" name="button" value="Meat">Meat<br></label>&nbsp;&nbsp;
+      <label><input type="radio" name="button" value="Bread">Bread<br></label>&nbsp;&nbsp;
       <label><input type="radio" name="button" value="Other">Other<br></label>
     </div>
       <!--Expiration Month:

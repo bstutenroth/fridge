@@ -9,13 +9,13 @@
   </head>
   <body>
     <div class="navCal">
+        <div id = "welcomeCal">Welcome {{ username }}</div><br>
         <a href="/">Home</a>
         <a href="/newfood">Add New Food</a>
         <a id = "addPage"method="get" href="/newfood">My Calendar</a>
         <a href="/myfridge">My Fridge</a>
     </div>
     <hr class = "white">
-  <div id = "welcomeCal">Welcome {{ username }}!</div><br>
       <div id = "riccardo">
       {% for food in food_list %}
         <div id = "eachItem">
@@ -24,7 +24,7 @@
        </div>
       {% endfor %}
     </div>
-      <br>
+    <br>
     <div id="delete_bar">
       <div class = "delete_options">
         <h3>Consumed:</h3>
