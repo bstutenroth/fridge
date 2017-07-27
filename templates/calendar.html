@@ -25,26 +25,32 @@
       {% endfor %}
     </div>
       <br>
-    <h3>Consumed:</h3>
-      <form action="" method="post">
-        <select name='deletelist'>
-        {% for food in food_list %}
-        <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
-        {% endfor %}
-        </select>
-        <!-- {% for food in food_list %}
-        <label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
-        {% endfor %} -->
-        <input type="submit" value="Delete" />
-      </form>
-    <h3>Expired:</h3>
-      <form action="" method="post">
-        <select name='deletelist'>
-        {% for food in food_list %}
-        <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
-        {% endfor %}
-        </select>
-        <input type="submit" value="Delete" />
-      </form>
+    <div id="delete_bar">
+      <div class = "delete_options">
+        <h3>Consumed:</h3>
+          <form action="" method="post">
+            <select name='deletelist'>
+            {% for food in food_list %}
+            <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+            {% endfor %}
+            </select>
+            <!-- {% for food in food_list %}
+            <label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+            {% endfor %} -->
+            <input type="submit" value="Delete" />
+          </form>
+      </div>
+      <div class = "delete_options">
+        <h3>Expired:</h3>
+          <form action="" method="post">
+            <select name='deletelist'>
+            {% for food in food_list %}
+            <label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+            {% endfor %}
+            </select>
+            <input type="submit" value="Delete" />
+          </form>
+      </div>
+    </div>
   </body>
 </html>
