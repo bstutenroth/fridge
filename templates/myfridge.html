@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="resources/colors.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="resources/script.js"></script>
 	<title>My Fridge</title>
 </head>
 <body>
   <div class="navCal">
 			<a href="/">Home</a>
 			<a href="/newfood">Add New Food</a>
-			<a id = "addPage"method="get" href="/calendar">My Calendar</a>
-			<a href="/myfridge">My Fridge</a>
+			<a method="get" href="/calendar">My Calendar</a>
+			<a id = "fridge" href="/myfridge">My Fridge</a>
 	</div>
 	<hr>
   <div id = "welcomeCal">Welcome {{ username }}!</div><br>

@@ -116,10 +116,9 @@
 #calendar{
   background-color: #f3e5ab;
   font-family: Poiret One;
-
 }
 #welcomeCal{
-  font-size: 400%;
+  font-size: 550%;
   text-align: center;
   margin-top: 2%;
 }
@@ -144,10 +143,10 @@
   border: 1px solid;
   color: white;
 }
-#ricardo{
+#riccardo{
   display: flex;
   flex-wrap: wrap;
-  margin-left: 15%;
+  margin-left: 12%;
 }
 .buttons{
   display: flex;
@@ -157,4 +156,7 @@
 }
 #cat{
   margin-top: 2%;
+}
+#titanic{
+  float: none;
 }
