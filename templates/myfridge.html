@@ -20,7 +20,27 @@
 	<h2 class = "headCat">Meat</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Meat' %}
-			<div class = "foodCat">{{food.foodname}}</div>
+			<div class = "foodCat">{{food.foodname}}
+				<div class = "delete_options">
+						<form action="" method="post">
+							<!-- <select name='deletelist'>
+							<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+							</select> -->
+							<!-- {% for food in food_list %}
+							<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+							{% endfor %} -->
+							<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+						</form>
+				</div>
+				<div class = "delete_options">
+						<form action="" method="post">
+							<!-- <select name='deletelist'>
+							<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+							</select> -->
+							<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+						</form>
+					</div>
+				</div>
 		{% endif %}
 	{% endfor %}</div>
 	<h2 class = "headCat">Dairy</h2>

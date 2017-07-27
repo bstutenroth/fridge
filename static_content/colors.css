@@ -197,6 +197,9 @@
   text-align: center;
 }
 .foodCat{
+  /*text-wrap: unrestricted;
+  flex-wrap: wrap;*/
+  word-wrap: break-word;
   border-style: double;
   border-color: white;
   font-size: 200%;
