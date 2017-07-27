@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html id = "calendar">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="resources/colors.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="resources/script.js"></script>
+    <title>My Calendar</title>
+  </head>
+  <body>
+    <div class="navCal">
+        <a href="/">Home</a>
+        <a href="/newfood">Add New Food</a>
+        <a id = "addPage"method="get" href="/newfood">My Calendar</a>
+        <a href="/myfridge">My Fridge</a>
+    </div>
+    <hr class = "white">
+  <div id = "welcomeCal">Welcome {{ username }}!</div><br>
+      <div id = "ricardo">
+      {% for food in food_list %}
+        <div id = "eachItem">
+          <div id = "date"><h4>Expires on <br> {{ food.date }}</h4></div>
+        <div id = "item">{{ food.foodname }}</div><br>
+       </div>
+      {% endfor %}
+    </div>
+      <br>
+    <h3>Delete Items</h3>
+      <form action="" method="post">
+        {% for food in food_list %}
+        <label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+        {% endfor %}
+      <input type="submit" value="Delete" />
+    </form>
+  </body>
+</html>

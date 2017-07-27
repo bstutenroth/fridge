@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html id = "newfood">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="resources/script.js"></script>
+    <title>New Food!</title>
+    <link rel="stylesheet" href="resources/colors.css">
+  </head>
+  <body>
+    <div class="navFood">
+      <!-- <ul> -->
+        <a href="/">Home</a>
+        <a id = "addPage"method="get" href="/newfood">Add New Food</a>
+        <a href="/calendar">My Calendar</a>
+        <a href="/myfridge">My Fridge</a>
+      <!-- </ul> -->
+    </div>
+    <hr>
+    <h1 id = 'formheader'>What did you purchase?</h1>
+    <form action="" method="post"><div id = "foodname" >
+      Food Name:
+    <input type="text" name="foodname"> </div><br>
+    <!---  Category:<br>
+      <input type="radio" name="category" value="meat">Meat
+      <input type="radio" name="category" value="drinks">Drinks
+      <input type="radio" name="category" value="produce">Produce
+      <input type="radio" name="category" value="dairy">Dairy
+      <input type="radio" name="category" value="other">Other --->
+      <br><div id  = "expd8">
+      When does your food expire?<br>
+      <input type="date" name="expiredate" min="2017-01-01">
+      <br><div id  = "cat">
+      What category?<br></div>
+      <div class = "buttons">
+      <label><input type="radio" name="button" value="Produce">Produce<br></label>
+      <label><input type="radio" name="button" value="Dairy">Dairy<br></label>
+      <label><input type="radio" name="button" value="Drinks">Drinks<br></label>
+      <label><input type="radio" name="button" value="Meat">Meat<br></label>
+      <label><input type="radio" name="button" value="Bread">Bread<br></label>
+      <label><input type="radio" name="button" value="Other">Other<br></label>
+    </div>
+      <!--Expiration Month:
+      <select id="month" name="month">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select><br>
+      Expiration Date:<br>
+      <input type="text" name="day"><br>
+      Expiration Year:<br>
+      <input type="text" name="year"><br>-->
+      <input id="submitbutton" type="submit" value="Submit">
+    </form>
+  </body>
+</html>
