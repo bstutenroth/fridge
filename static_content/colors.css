@@ -44,13 +44,15 @@
 #other_login {
   color: black;
   font-family: Poiret One;
-  margin-left: 40%;
-  position: fixed;
-  margin-top: 25%;
-  font-size: 150%
+  font-size: 150%;
+  justify-content: center;
 }
 #other_login a{
+  position:absolute;
+  display: flex;
   color: black;
+  margin-top: 30%;
+  margin-left: 45%;
 }
 .links{
   font-family: Poiret One;
@@ -211,4 +213,21 @@
   margin: 3%;
   margin-left: 7%;
   align-items:center;
+}
+#login{
+  background-color: #779ECB;
+  color: white;
+}
+#signin{
+  /*justify-content: center;*/
+  text-align: center;
+  margin-top: 10%;
+  font-family: Poiret One;
+  font-size: 600%;
+  font-weight: normal;
+  margin-bottom: 10%;
+}
+a{
+  text-align: center;
+  color: blue;
 }
