@@ -9,13 +9,13 @@
 </head>
 <body>
   <div class="navCal">
+			<div id = "welcomeCal">Welcome {{ username }}</div><br>
 			<a href="/">Home</a>
 			<a href="/newfood">Add New Food</a>
 			<a method="get" href="/calendar">My Calendar</a>
 			<a id = "addPage" href="/myfridge">My Fridge</a>
 	</div>
 	<hr class = "white">
-  <div id = "welcomeCal">Welcome {{ username }}!</div><br>
 	<div id = "catOrganize">
 	<h2 class = "headCat">Meat</h2>
 	<div class = "shiftL">{% for food in food_list %}

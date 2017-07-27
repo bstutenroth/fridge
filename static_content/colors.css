@@ -61,7 +61,7 @@
   font-family: Poiret One;
 }
 #formheader{
-  font-size: 600%;
+  font-size: 400%;
   text-align: center;
   padding-bottom: 2%;
 }
@@ -115,17 +115,16 @@
 }
 #fridge{
   /*background-color: #93A36A;*/
-  background-color: #90EE90;
+  background-color: #83915E;
   font-family: Poiret One;
 }
 #calendar{
-  background-color: #48D1CC;
+  background-color: #E1924A;
   font-family: Poiret One;
 }
 #welcomeCal{
-  font-size: 400%;
-  text-align: center;
-  margin-top: 2%;
+  font-size: 120%;
+  font-weight: bolder
 }
 #eachItem{
   border-style: double;
@@ -165,16 +164,12 @@
 #titanic{
   float: none;
 }
-/*#catOrganize{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}*/
+
 .headCat{
-  border-style: double;
-  border-color: white;
+  /*border-style: double;
+  border-color: white;*/
+  font-weight: normal;
   font-size: 400%;
-  padding: 2%;
   width: 100%;
   text-align: center;
 }
@@ -192,6 +187,6 @@
 .shiftL{
   display: flex;
   flex-wrap: wrap;
-  margin: 8%;
+  margin: 4%;
   align-items:center;
 }
