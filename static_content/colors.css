@@ -156,7 +156,7 @@
 #riccardo{
   display: flex;
   flex-wrap: wrap;
-  margin-left: 12%;
+  margin-left: 15%;
 }
 .buttons{
   display: flex;
@@ -199,5 +199,6 @@
   display: flex;
   flex-wrap: wrap;
   margin: 3%;
+  margin-left: 7%;
   align-items:center;
 }
