@@ -109,7 +109,7 @@ class FridgeHandler(webapp2.RequestHandler):
 
 def send_approved_mail(sender_address):
     mail.send_mail(sender=sender_address,
-                   to="user <usernames.email>",
+                   to="Brenna <brennastutenroth@gmail.com>",
                    subject="My Fridge Daily Reminder",
                    body="""Dear User:
 This is your daily reminder to check your items' expiration dates at
