@@ -3,6 +3,7 @@ import jinja2
 import os
 from google.appengine.ext import ndb
 from google.appengine.api import users
+from google.appengine.api import mail
 from food import User
 from food import Food
 from datetime import datetime
@@ -106,9 +107,26 @@ class FridgeHandler(webapp2.RequestHandler):
         list_template = env.get_template('myfridge.html')
         self.response.write(list_template.render(variables))
 
+def send_approved_mail(sender_address):
+    mail.send_mail(sender=sender_address,
+                   to="user <usernames.email>",
+                   subject="My Fridge Daily Reminder",
+                   body="""Dear User:
+This is your daily reminder to check your items' expiration dates at
+http://my-fridge-174900.appspot.com
+- The My Fridge App Team
+""")
+class SendMailHandler(webapp2.RequestHandler):
+    def get(self):
+        send_approved_mail('{}@appspot.gserviceaccount.com'.format(
+            app_identity.get_application_id()))
+        self.response.content_type = 'text/plain'
+        self.response.write('Sent test email.')
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newfood', NewFoodHandler),
     ('/calendar', ListofExpirationHandler),
     ('/myfridge', FridgeHandler),
+    ('/send_mail', SendMailHandler)
 ], debug=True)
