@@ -1,5 +1,5 @@
-# cron:
-# -description: an email a minute
-#   url: /send_mail
-#   target: beta
-#   schedule: every 1 minute
+cron:
+-description: an email a minute
+  url: /send_mail
+  target: beta
+  schedule: every 1 minute
