@@ -192,25 +192,25 @@
   /*border-style: double;
   border-color: white;*/
   font-size: 400%;
-  padding: 2%;
   width: 100%;
+  margin: 0%;
   text-align: center;
 }
 .foodCat{
   border-style: double;
   border-color: white;
-  margin: 3%;
   font-size: 200%;
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  margin: 3%;
+  padding: 1%;
+  height: 10%;
   text-align: center;
-  padding: 5%;
   /*margin-left: 15%;*/
 }
 .shiftL{
   display: flex;
   flex-wrap: wrap;
-  margin: 3%;
+  margin: 1%;
   margin-left: 7%;
   align-items:center;
 }
