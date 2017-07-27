@@ -118,7 +118,7 @@
   font-family: Poiret One;
 }
 #welcomeCal{
-  font-size: 550%;
+  font-size: 400%;
   text-align: center;
   margin-top: 2%;
 }
@@ -132,11 +132,11 @@
 
 }
 #date{
-  font-size: 200%;
+  font-size: 150%;
   text-align: center;
 }
 #item{
-  font-size: 400%;
+  font-size: 300%;
   text-align: center;
 }
 .white{
