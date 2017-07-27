@@ -43,10 +43,16 @@ class HomeHandler(webapp2.RequestHandler):
 class NewFoodHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
-        variables = {'username':user}
-
-        newfood_template = env.get_template('newfood.html')
-        self.response.out.write(newfood_template.render(variables))
+        if user == None:
+            greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
+                            users.create_login_url('/'))
+            self.response.write('<html><body>%s</body></html>' % greeting)
+            login_template = env.get_template('Login.html')
+            self.response.out.write(login_template.render())
+        else:
+            variables = {'username':user}
+            newfood_template = env.get_template('newfood.html')
+            self.response.out.write(newfood_template.render(variables))
 
 #Adding New Food to Datastore
     def post(self):
