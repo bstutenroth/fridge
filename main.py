@@ -77,20 +77,28 @@ class NewFoodHandler(webapp2.RequestHandler):
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
-        current_user_food = []
-        user = str(users.get_current_user())
-        all_users = User.query().fetch()
-        food_list = Food.query().fetch()
-        for usernames in all_users:
-            if user == usernames.email:
-                current_user_key = usernames.key
-        for fooditems in food_list:
-            if current_user_key == fooditems.user_key:
-                current_user_food.append(fooditems)
-        current_user_food.sort(key=lambda item:item.date, reverse=False)
-        variables = {'username':user,'food_list':current_user_food}
-        list_template = env.get_template('calendar.html')
-        self.response.write(list_template.render(variables))
+        user = users.get_current_user()
+        if user == None:
+            greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
+                            users.create_login_url('/'))
+            self.response.write('<html><body>%s</body></html>' % greeting)
+            login_template = env.get_template('Login.html')
+            self.response.out.write(login_template.render())
+        else:
+            current_user_food = []
+            user = str(users.get_current_user())
+            all_users = User.query().fetch()
+            food_list = Food.query().fetch()
+            for usernames in all_users:
+                if user == usernames.email:
+                    current_user_key = usernames.key
+            for fooditems in food_list:
+                if current_user_key == fooditems.user_key:
+                    current_user_food.append(fooditems)
+            current_user_food.sort(key=lambda item:item.date, reverse=False)
+            variables = {'username':user,'food_list':current_user_food}
+            list_template = env.get_template('calendar.html')
+            self.response.write(list_template.render(variables))
 
     def post(self):
         idtodelete=self.request.get("deletelist")
@@ -102,19 +110,27 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
-        current_user_food = []
-        user = str(users.get_current_user())
-        all_users = User.query().fetch()
-        food_list = Food.query().fetch()
-        for usernames in all_users:
-            if user == usernames.email:
-                current_user_key = usernames.key
-        for fooditems in food_list:
-            if current_user_key == fooditems.user_key:
-                current_user_food.append(fooditems)
-        variables = {'username':user,'food_list':current_user_food}
-        list_template = env.get_template('myfridge.html')
-        self.response.write(list_template.render(variables))
+        user = users.get_current_user()
+        if user == None:
+            greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
+                            users.create_login_url('/'))
+            self.response.write('<html><body>%s</body></html>' % greeting)
+            login_template = env.get_template('Login.html')
+            self.response.out.write(login_template.render())
+        else:
+            current_user_food = []
+            user = str(users.get_current_user())
+            all_users = User.query().fetch()
+            food_list = Food.query().fetch()
+            for usernames in all_users:
+                if user == usernames.email:
+                    current_user_key = usernames.key
+            for fooditems in food_list:
+                if current_user_key == fooditems.user_key:
+                    current_user_food.append(fooditems)
+            variables = {'username':user,'food_list':current_user_food}
+            list_template = env.get_template('myfridge.html')
+            self.response.write(list_template.render(variables))
 
     def post(self):
         idtodelete=self.request.get("deletelist")
