@@ -27,7 +27,7 @@ class HomeHandler(webapp2.RequestHandler):
                     checking_var = True
             # if current user isn't in datatstore, adds them to datastore
             if checking_var == False:
-                new_user = User(email=user.nickname())
+                new_user = User(email=user.nickname(),consume=0, expire=0)
                 new_user.put()
             all_users = User.query().fetch()
             print all_users
@@ -133,12 +133,16 @@ class FridgeHandler(webapp2.RequestHandler):
             self.response.write(list_template.render(variables))
 
     def post(self):
+        user = users.get_current_user()
         idtodelete=self.request.get("deletelist")
-        print idtodelete
-        foodtodelete=Food.query(Food.foodname == idtodelete).get()
-        print foodtodelete
-        foodtodelete.key.delete()
-        self.redirect('/')
+        deletetype=self.request.get('deletetype')
+        if deletetype == 'consume'
+
+            print idtodelete
+            foodtodelete=Food.query(Food.foodname == idtodelete).get()
+            print foodtodelete
+            foodtodelete.key.delete()
+            self.redirect('/')
 
 # def send_approved_mail(sender_address):
 #     message = mail.EmailMessage(sender="<brennastutenroth@gmail.com>",
