@@ -42,8 +42,11 @@ class HomeHandler(webapp2.RequestHandler):
 
 class NewFoodHandler(webapp2.RequestHandler):
     def get (self):
+        user = users.get_current_user()
+        variables = {'username':user}
+
         newfood_template = env.get_template('newfood.html')
-        self.response.out.write(newfood_template.render())
+        self.response.out.write(newfood_template.render(variables))
 
 #Adding New Food to Datastore
     def post(self):
