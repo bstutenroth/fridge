@@ -2,4 +2,4 @@ cron:
 - description: an email a minute
   url: /send_mail
   target: beta
-  schedule: every 1 minute
+  schedule: every 1 minutes from 20:20 to 10:00
