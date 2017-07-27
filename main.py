@@ -44,7 +44,7 @@ class NewFoodHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
         if user == None:
-            greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
+            greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
                             users.create_login_url('/'))
             self.response.write('<html><body>%s</body></html>' % greeting)
             login_template = env.get_template('Login.html')

@@ -41,6 +41,17 @@
 .login a{
   color: black;
 }
+#other_login {
+  color: black;
+  font-family: Poiret One;
+  margin-left: 40%;
+  position: fixed;
+  margin-top: 25%;
+  font-size: 150%
+}
+#other_login a{
+  color: black;
+}
 .links{
   font-family: Poiret One;
   display: flex;
