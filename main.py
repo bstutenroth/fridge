@@ -107,6 +107,14 @@ class FridgeHandler(webapp2.RequestHandler):
         list_template = env.get_template('myfridge.html')
         self.response.write(list_template.render(variables))
 
+    def post(self):
+        idtodelete=self.request.get("deletelist")
+        print idtodelete
+        foodtodelete=Food.query(Food.foodname == idtodelete).get()
+        print foodtodelete
+        foodtodelete.key.delete()
+        self.redirect('/')
+
 # def send_approved_mail(sender_address):
 #     message = mail.EmailMessage(sender="<brennastutenroth@gmail.com>",
 #         to="Brenna <brennastutenroth@gmail.com>",
