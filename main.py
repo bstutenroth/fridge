@@ -108,7 +108,7 @@ class FridgeHandler(webapp2.RequestHandler):
         self.response.write(list_template.render(variables))
 
 def send_approved_mail(sender_address):
-    mail.send_mail(sender=sender_address,
+    message = mail.EmailMessage(sender=brennastutenroth@gmail.com,
                    to="Brenna <brennastutenroth@gmail.com>",
                    subject="My Fridge Daily Reminder",
                    body="""Dear User:
