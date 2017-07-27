@@ -46,36 +46,131 @@
 	<h2 class = "headCat">Dairy</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Dairy' %}
-			<div class = "foodCat">{{food.foodname}}</div>
-		{% endif %}
+		<div class = "foodCat">{{food.foodname}}
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<!-- {% for food in food_list %}
+						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+						{% endfor %} -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+					</form>
+			</div>
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+					</form>
+				</div>
+			</div>		{% endif %}
 	{% endfor %}</div>
 	<h2 class = "headCat">Produce</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Produce' %}
-			<div class = "foodCat">{{food.foodname}}</div>
-		{% endif %}
+		<div class = "foodCat">{{food.foodname}}
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<!-- {% for food in food_list %}
+						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+						{% endfor %} -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+					</form>
+			</div>
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+					</form>
+				</div>
+			</div>		{% endif %}
 	{% endfor %}</div>
 	<h2 class = "headCat">Bread</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Bread' %}
-			<div class = "foodCat">{{food.foodname}}</div>
-		{% endif %}
+		<div class = "foodCat">{{food.foodname}}
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<!-- {% for food in food_list %}
+						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+						{% endfor %} -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+					</form>
+			</div>
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+					</form>
+				</div>
+			</div>		{% endif %}
 	{% endfor %}</div>
 	<h2 class = "headCat">Drinks</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Drinks' %}
-			<div class = "foodCat">{{food.foodname}}</div>
-		{% endif %}
+		<div class = "foodCat">{{food.foodname}}
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<!-- {% for food in food_list %}
+						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+						{% endfor %} -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+					</form>
+			</div>
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+					</form>
+				</div>
+			</div>		{% endif %}
 	{% endfor %}</div>
 	<h2 class = "headCat">Other</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Other' %}
-			<div class = "foodCat">{{food.foodname}}</div>
-		{% endif %}
+		<div class = "foodCat">{{food.foodname}}
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<!-- {% for food in food_list %}
+						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
+						{% endfor %} -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
+					</form>
+			</div>
+			<div class = "delete_options">
+					<form action="" method="post">
+						<!-- <select name='deletelist'>
+						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
+						</select> -->
+						<button type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
+					</form>
+				</div>
+			</div>		{% endif %}
 	{% endfor %}</div>
 	<br>
 </div>
-<div id="delete_bar">
+<!-- <div id="delete_bar">
 	<div class = "delete_options">
 		<h3>Consumed:</h3>
 			<form action="" method="post">
@@ -84,10 +179,10 @@
 				<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
 				{% endfor %}
 				</select>
-				<!-- {% for food in food_list %}
+				 {% for food in food_list %}
 				<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
 				{% endfor %} -->
-				<input type="submit" value="Delete" />
+				<!-- <input type="submit" value="Delete" />
 			</form>
 	</div>
 	<div class = "delete_options">
@@ -99,6 +194,6 @@
 				{% endfor %}
 				</select>
 				<input type="submit" value="Delete" />
-			</form>
+			</form> --> -->
 </body>
 </html>
