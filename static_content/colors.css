@@ -199,6 +199,7 @@
 .hidedate{
   display: flex;
   font-size: 66%;
+  padding-left: 17%;
   flex-wrap:nowrap;
 }
 .foodCat{
@@ -240,19 +241,21 @@ a{
   color: blue;
 }
 .btn {
-  color: #429098;
+  color: black;
   font-size: 50%;
   font-family: Poiret One;
   background: white;
   padding: 2%;
-  border: 0;
+  border-style: solid;
+  border-color: black;
 }
 .btn2 {
-  color: #E1924A;
+  color: black;
   font-size: 100%;
   font-family: Poiret One;
   background: white;
   padding: 1%;
   margin: 1%;
-  border: 0;
+  border-style: solid;
+  border-color: black;
 }
