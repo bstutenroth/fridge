@@ -17,7 +17,6 @@ class HomeHandler(webapp2.RequestHandler):
         if user:
             greeting = ('<div class = "logout">Welcome, %s! (<a href="%s">sign out</a>)</div>' %
                 (user.nickname(), users.create_logout_url('/')))
-            print user.nickname()
             # checks if current user is already in datastore
             checking_var = False
             all_users_query = User.query()
@@ -30,12 +29,10 @@ class HomeHandler(webapp2.RequestHandler):
                 new_user = User(email=user.nickname(),consume=0, expire=0)
                 new_user.put()
             all_users = User.query().fetch()
-            print all_users
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
             all_users = User.query().fetch()
-            print all_users
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render())
@@ -92,11 +89,12 @@ class ListofExpirationHandler(webapp2.RequestHandler):
             for usernames in all_users:
                 if user == usernames.email:
                     current_user_key = usernames.key
+                    current_user_list = usernames
             for fooditems in food_list:
                 if current_user_key == fooditems.user_key:
                     current_user_food.append(fooditems)
             current_user_food.sort(key=lambda item:item.date, reverse=False)
-            variables = {'username':user,'food_list':current_user_food}
+            variables = {'username':current_user_list,'food_list':current_user_food}
             list_template = env.get_template('calendar.html')
             self.response.write(list_template.render(variables))
 
@@ -141,11 +139,13 @@ class FridgeHandler(webapp2.RequestHandler):
             for usernames in all_users:
                 if user == usernames.email:
                     current_user_key = usernames.key
-                    current_user_name = usernames
+                    current_user_list = usernames
+                    break
             for fooditems in food_list:
                 if current_user_key == fooditems.user_key:
                     current_user_food.append(fooditems)
-            variables = {'username':user,'food_list':current_user_food}
+                    break
+            variables = {'username':current_user_list,'food_list':current_user_food}
             list_template = env.get_template('myfridge.html')
             self.response.write(list_template.render(variables))
 
