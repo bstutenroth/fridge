@@ -149,6 +149,7 @@ class FridgeHandler(webapp2.RequestHandler):
             user = str(users.get_current_user())
             all_users = User.query().fetch()
             food_list = Food.query().fetch()
+            print food_list
             for usernames in all_users:
                 if user == usernames.email:
                     current_user_key = usernames.key
@@ -157,7 +158,8 @@ class FridgeHandler(webapp2.RequestHandler):
             for fooditems in food_list:
                 if current_user_key == fooditems.user_key:
                     current_user_food.append(fooditems)
-                    break
+                    continue
+            print current_user_food
             variables = {'username':current_user_list,'food_list':current_user_food}
             list_template = env.get_template('myfridge.html')
             self.response.write(list_template.render(variables))
