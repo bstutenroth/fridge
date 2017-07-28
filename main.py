@@ -191,20 +191,20 @@ class FridgeHandler(webapp2.RequestHandler):
 #             app_identity.get_application_id()))
 #         self.response.content_type = 'text/plain'
 #         self.response.write('Sent test email.')
-def send_approved_mail(sender_address):
-    # [START send_message]
-    message = mail.EmailMessage(
-        sender=sender_address,
-        subject="Your account has been approved")
-
-    message.to = "Albert Johnson <brennastutenroth@gmail.com>"
-    message.body = """Dear User:
-his is your daily reminder to check your items' expiration dates at
-http://my-fridge-174900.appspot.com
-- The My Fridge App Team
-"""
-    message.send()
-    # [END send_message]
+# def send_approved_mail(sender_address):
+#     # [START send_message]
+#     message = mail.EmailMessage(
+#         sender=sender_address,
+#         subject="Your account has been approved")
+#
+#     message.to = "Albert Johnson <brennastutenroth@gmail.com>"
+#     message.body = """Dear User:
+# his is your daily reminder to check your items' expiration dates at
+# http://my-fridge-174900.appspot.com
+# - The My Fridge App Team
+# """
+#     message.send()
+#     # [END send_message]
 
 
 class SendMessageHandler(webapp2.RequestHandler):
