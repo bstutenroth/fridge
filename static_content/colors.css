@@ -196,6 +196,11 @@
   margin: 0%;
   text-align: center;
 }
+.hidedate{
+  display: flex;
+  font-size: 66%;
+  flex-wrap:nowrap;
+}
 .foodCat{
   /*text-wrap: unrestricted;
   flex-wrap: wrap;*/

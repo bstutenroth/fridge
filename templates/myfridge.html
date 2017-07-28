@@ -20,7 +20,7 @@
 	<h2 class = "headCat">Meat</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Meat' %}
-			<div class = "foodCat">{{food.foodname}}
+			<div class = "foodCat">{{food.foodname}} <div class = "hidedate"> {{food.date}}</div>
 				<div class = "delete_options">
 						<form action="" method="post">
 							<!-- <select name='deletelist'>
@@ -48,7 +48,7 @@
 	<h2 class = "headCat">Dairy</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Dairy' %}
-		<div class = "foodCat">{{food.foodname}}
+		<div class = "foodCat">{{food.foodname}} <div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
 						<!-- <select name='deletelist'>
@@ -75,7 +75,7 @@
 	<h2 class = "headCat">Produce</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Produce' %}
-		<div class = "foodCat">{{food.foodname}}
+		<div class = "foodCat">{{food.foodname}} <div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
 						<!-- <select name='deletelist'>
@@ -102,7 +102,7 @@
 	<h2 class = "headCat">Bread</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Bread' %}
-		<div class = "foodCat">{{food.foodname}}
+		<div class = "foodCat">{{food.foodname}} <div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
 						<!-- <select name='deletelist'>
@@ -129,7 +129,7 @@
 	<h2 class = "headCat">Drinks</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Drinks' %}
-		<div class = "foodCat">{{food.foodname}}
+		<div class = "foodCat">{{food.foodname}}<div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
 						<!-- <select name='deletelist'>
@@ -156,7 +156,7 @@
 	<h2 class = "headCat">Other</h2>
 	<div class = "shiftL">{% for food in food_list %}
 		{% if food.category == 'Other' %}
-		<div class = "foodCat">{{food.foodname}}
+		<div class = "foodCat">{{food.foodname}}<div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
 						<!-- <select name='deletelist'>
