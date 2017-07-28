@@ -125,6 +125,7 @@ class FridgeHandler(webapp2.RequestHandler):
             for usernames in all_users:
                 if user == usernames.email:
                     current_user_key = usernames.key
+                    current_user_name = usernames
             for fooditems in food_list:
                 if current_user_key == fooditems.user_key:
                     current_user_food.append(fooditems)
@@ -133,16 +134,28 @@ class FridgeHandler(webapp2.RequestHandler):
             self.response.write(list_template.render(variables))
 
     def post(self):
-        user = users.get_current_user()
         idtodelete=self.request.get("deletelist")
         deletetype=self.request.get('deletetype')
-        if deletetype == 'consume'
+        all_users = User.query().fetch()
+        food_list = Food.query().fetch()
+        print all_users
+        if deletetype == 'consume':
+            current_user = str(users.get_current_user())
+            print current_user
+            for usernames in all_users:
+                print 'testestest'
+                print usernames.email
+                if current_user == usernames.email:
+                    usernames.consume += 1
+                    usernames.put()
+                    break
 
-            print idtodelete
-            foodtodelete=Food.query(Food.foodname == idtodelete).get()
-            print foodtodelete
-            foodtodelete.key.delete()
-            self.redirect('/')
+        print 'hello'
+        print idtodelete
+        foodtodelete=Food.query(Food.foodname == idtodelete).get()
+        print foodtodelete
+        foodtodelete.key.delete()
+        self.redirect('/')
 
 # def send_approved_mail(sender_address):
 #     message = mail.EmailMessage(sender="<brennastutenroth@gmail.com>",
