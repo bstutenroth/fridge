@@ -15,6 +15,9 @@
 			<a method="get" href="/calendar">My Calendar</a>
 			<a id = "addPage" href="/myfridge">My Fridge</a>
 	</div>
+	<div id='counts'>Expired Food: {{username.expire}}
+		<br>
+		Consumed Food: {{username.consume}}
 	<hr class = "white">
 	<div id = "catOrganize">
 	<h2 class = "headCat">Meat</h2>
@@ -132,22 +135,13 @@
 		<div class = "foodCat">{{food.foodname}}<div class = "hidedate"> {{food.date}}</div>
 			<div class = "delete_options">
 					<form action="" method="post">
-						<!-- <select name='deletelist'>
-						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
-						</select> -->
-						<!-- {% for food in food_list %}
-						<label><input type='radio' name='deletelist' value= {{food.foodname}} >{{food.foodname}}</input></label>
-						{% endfor %} -->
 						<input type=hidden name='deletetype' value="consume">
 						<button class = "btn" type="submit" name ='deletelist' value={{food.foodname}}>Consumed</button>
 					</form>
 			</div>
 			<div class = "delete_options">
 					<form action="" method="post">
-						<!-- <select name='deletelist'>
-						<label><option  name='deletelist' value={{food.foodname}} >{{food.foodname}}</option></label>
-						</select> -->
-						<input type=hidden name='deletetype' value="expire">
+												<input type=hidden name='deletetype' value="expire">
 						<button class = "btn" type="submit" name ='deletelist' value={{food.foodname}}>Expired</button>
 					</form>
 				</div>
