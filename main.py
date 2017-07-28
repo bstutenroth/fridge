@@ -24,10 +24,13 @@ class HomeHandler(webapp2.RequestHandler):
             for get_user in all_users:
                 if user.nickname() == get_user.email:
                     checking_var = True
+                    current_user_list = get_user
+
             # if current user isn't in datatstore, adds them to datastore
             if checking_var == False:
                 new_user = User(email=user.nickname(),consume=0, expire=0)
                 new_user.put()
+            variables = {'username':current_user_list}
             all_users = User.query().fetch()
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
@@ -35,7 +38,7 @@ class HomeHandler(webapp2.RequestHandler):
             all_users = User.query().fetch()
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(variables))
 
 class NewFoodHandler(webapp2.RequestHandler):
     def get (self):
@@ -117,10 +120,9 @@ class ListofExpirationHandler(webapp2.RequestHandler):
                     usernames.expire += 1
                     usernames.put()
                     break
-                    foodtodelete=Food.query(Food.foodname == idtodelete).get()
-                print foodtodelete
-                foodtodelete.key.delete()
-                self.redirect('/')
+        foodtodelete=Food.query(Food.foodname == idtodelete).get()
+        foodtodelete.key.delete()
+        self.redirect('/')
 
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
