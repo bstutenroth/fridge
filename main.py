@@ -22,20 +22,20 @@ class HomeHandler(webapp2.RequestHandler):
             all_users_query = User.query(User.email==user.nickname())
             person = all_users_query.get()
 
+            # we didn't get any matching users
             if not person:
                 print 'a'
-                #we didn't get any matching users
+            # we found 'em
             else:
                 checking_var = True
-                #we found 'em
                 variables = {'username':person.email}
                 print 'b'
 
-            all_users = all_users_query.fetch()
-#            for get_user in all_users:
-                # if user.nickname() == get_user.email:
-                #     checking_var = True
-                #     current_user_list = get_user
+        #     all_users = all_users_query.fetch()
+        #    for get_user in all_users:
+        #         if user.nickname() == get_user.email:
+        #             checking_var = True
+        #             current_user_list = get_user
 
 
             # if current user isn't in datatstore, adds them to datastore
@@ -92,6 +92,7 @@ class NewFoodHandler(webapp2.RequestHandler):
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
+        all_users = User.query(User.email==user.nickname()).get()
         if user == None:
             greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
                             users.create_login_url('/'))
@@ -106,7 +107,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
                 if user.nickname() == fooditems.user_email:
                     current_user_food.append(fooditems)
             current_user_food.sort(key=lambda item:item.date, reverse=False)
-            variables = {'username':user.nickname(),'food_list':current_user_food}
+            variables = {'username':user.nickname(),'food_list':current_user_food, 'count':all_users}
             list_template = env.get_template('calendar.html')
             self.response.write(list_template.render(variables))
 
@@ -134,6 +135,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
+        all_users = User.query(User.email==user.nickname()).get()
         if user == None:
             greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
                             users.create_login_url('/'))
@@ -142,13 +144,12 @@ class FridgeHandler(webapp2.RequestHandler):
             self.response.out.write(login_template.render())
         else:
             current_user_food = []
-            user = users.get_current_user()
             food_list = Food.query().fetch()
             for fooditems in food_list:
                 if user.nickname() == fooditems.user_email:
                     current_user_food.append(fooditems)
             print current_user_food
-            variables = {'username':user.nickname(),'food_list':current_user_food}
+            variables = {'username':user.nickname(),'food_list':current_user_food, 'count':all_users}
             list_template = env.get_template('myfridge.html')
             self.response.write(list_template.render(variables))
 

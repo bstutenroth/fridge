@@ -15,6 +15,9 @@
         <a id = "addPage"method="get" href="/newfood">My Calendar</a>
         <a href="/myfridge">My Fridge</a>
     </div>
+    <div id="counts">Expired: {{ count.expire }}
+      <br>
+      Consumed: {{ count.consume }}
     <hr class = "white">
       <div id = "riccardo">
       {% for food in food_list %}
