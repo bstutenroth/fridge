@@ -239,3 +239,20 @@ a{
   text-align: center;
   color: blue;
 }
+.btn {
+  color: #429098;
+  font-size: 50%;
+  font-family: Poiret One;
+  background: white;
+  padding: 2%;
+  border: 0;
+}
+.btn2 {
+  color: #E1924A;
+  font-size: 100%;
+  font-family: Poiret One;
+  background: white;
+  padding: 1%;
+  margin: 1%;
+  border: 0;
+}
