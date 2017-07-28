@@ -26,15 +26,16 @@ class HomeHandler(webapp2.RequestHandler):
                 print 'a'
                 #we didn't get any matching users
             else:
+                checking_var = True
                 #we found 'em
                 print 'b'
 
             all_users = all_users_query.fetch()
-            for get_user in all_users:
-                if user.nickname() == get_user.email:
-                    checking_var = True
-                    current_user_list = get_user
-                    variables = {'username':current_user_list}
+#            for get_user in all_users:
+                # if user.nickname() == get_user.email:
+                #     checking_var = True
+                #     current_user_list = get_user
+                #     variables = {'username':current_user_list}
 
             # if current user isn't in datatstore, adds them to datastore
             if checking_var == False:
@@ -132,7 +133,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         foodtodelete=Food.query(Food.foodname == idtodelete).get()
         foodtodelete.key.delete()
         self.redirect('/')
-        
+
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
