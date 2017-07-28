@@ -19,15 +19,16 @@ class HomeHandler(webapp2.RequestHandler):
                 (user.nickname(), users.create_logout_url('/')))
             # checks if current user is already in datastore
             checking_var = False
-            all_users_query = User.query(User.email==user.email())
-            all_users_query.get()
+            all_users_query = User.query(User.email==user.nickname())
+            person = all_users_query.get()
 
-            if not all_users_query:
+            if not person:
                 print 'a'
                 #we didn't get any matching users
             else:
                 checking_var = True
                 #we found 'em
+                variables = {'username':person.email}
                 print 'b'
 
             all_users = all_users_query.fetch()
@@ -35,7 +36,7 @@ class HomeHandler(webapp2.RequestHandler):
                 # if user.nickname() == get_user.email:
                 #     checking_var = True
                 #     current_user_list = get_user
-                #     variables = {'username':current_user_list}
+
 
             # if current user isn't in datatstore, adds them to datastore
             if checking_var == False:
@@ -43,12 +44,12 @@ class HomeHandler(webapp2.RequestHandler):
                 new_user.put()
 
                 variables = {'username':new_user}
-            all_users = User.query().fetch()
+        #    all_users = User.query().fetch()
         else:
             greeting = ('<div class = "login" ><a href="%s">Sign in or register</a></div>' %
                 users.create_login_url('/'))
             variables = {'username':""}
-            all_users = User.query().fetch()
+    #        all_users = User.query().fetch()
         self.response.write('<html><body>%s</body></html>' % greeting)
         template = env.get_template('homepage.html')
         self.response.out.write(template.render(variables))
@@ -69,21 +70,22 @@ class NewFoodHandler(webapp2.RequestHandler):
 
 #Adding New Food to Datastore
     def post(self):
+        user = users.get_current_user()
         submitted_variables = {
             'foodname':self.request.get("foodname"),
             'date':self.request.get('expiredate'),
             'category':self.request.get('button')
         }
         # stores new food item into datastore and associate them with current user
-        user = str(users.get_current_user())
-        all_users = User.query().fetch()
-        for usernames in all_users:
-            print usernames
-            if user == usernames.email:
-                print usernames.email
-                current_user_key = usernames.key
-                print current_user_key
-                add_food = Food(user_key=current_user_key, foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'), category=submitted_variables['category']).put()
+        # user = str(users.get_current_user())
+        # all_users = User.query().fetch()
+        # for usernames in all_users:
+        #     print usernames
+        #     if user == usernames.email:
+        #         print usernames.email
+        #         current_user_key = usernames.key
+        #         print current_user_key
+        add_food = Food(user_email=user.nickname(), foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'), category=submitted_variables['category']).put()
         self.redirect("/")
 
 #Displaying on Calendar Handler
@@ -98,18 +100,13 @@ class ListofExpirationHandler(webapp2.RequestHandler):
             self.response.out.write(login_template.render())
         else:
             current_user_food = []
-            user = str(users.get_current_user())
-            all_users = User.query().fetch()
+            user = users.get_current_user()
             food_list = Food.query().fetch()
-            for usernames in all_users:
-                if user == usernames.email:
-                    current_user_key = usernames.key
-                    current_user_list = usernames
             for fooditems in food_list:
-                if current_user_key == fooditems.user_key:
+                if user.nickname() == fooditems.user_email:
                     current_user_food.append(fooditems)
             current_user_food.sort(key=lambda item:item.date, reverse=False)
-            variables = {'username':current_user_list,'food_list':current_user_food}
+            variables = {'username':user.nickname(),'food_list':current_user_food}
             list_template = env.get_template('calendar.html')
             self.response.write(list_template.render(variables))
 
@@ -145,19 +142,13 @@ class FridgeHandler(webapp2.RequestHandler):
             self.response.out.write(login_template.render())
         else:
             current_user_food = []
-            user = str(users.get_current_user())
-            all_users = User.query().fetch()
+            user = users.get_current_user()
             food_list = Food.query().fetch()
-            print food_list
-            for usernames in all_users:
-                if user == usernames.email:
-                    current_user_key = usernames.key
-                    current_user_list = usernames
             for fooditems in food_list:
-                if current_user_key == fooditems.user_key:
+                if user.nickname() == fooditems.user_email:
                     current_user_food.append(fooditems)
             print current_user_food
-            variables = {'username':current_user_list,'food_list':current_user_food}
+            variables = {'username':user.nickname(),'food_list':current_user_food}
             list_template = env.get_template('myfridge.html')
             self.response.write(list_template.render(variables))
 
