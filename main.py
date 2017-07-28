@@ -132,7 +132,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
         foodtodelete=Food.query(Food.foodname == idtodelete).get()
         foodtodelete.key.delete()
         self.redirect('/')
-
+        
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
