@@ -76,6 +76,10 @@ class NewFoodHandler(webapp2.RequestHandler):
             'date':self.request.get('expiredate'),
             'category':self.request.get('button')
         }
+        if submitted_variables['date'] == None:
+                self.redirect("/newfood")
+        elif submitted_variables['date'] == '':
+                self.redirect("/newfood")
         # stores new food item into datastore and associate them with current user
         # user = str(users.get_current_user())
         # all_users = User.query().fetch()
@@ -85,8 +89,9 @@ class NewFoodHandler(webapp2.RequestHandler):
         #         print usernames.email
         #         current_user_key = usernames.key
         #         print current_user_key
-        add_food = Food(user_email=user.nickname(), foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'), category=submitted_variables['category']).put()
-        self.redirect("/")
+        else:
+            add_food = Food(user_email=user.nickname(), foodname= submitted_variables['foodname'], date=datetime.strptime(submitted_variables['date'], '%Y-%m-%d'), category=submitted_variables['category']).put()
+            self.redirect("/")
 
 #Displaying on Calendar Handler
 class ListofExpirationHandler(webapp2.RequestHandler):
@@ -194,7 +199,6 @@ def send_approved_mail(sender_address):
     message = mail.EmailMessage(
         sender=sender_address,
         subject="Your account has been approved")
-
     message.to = "Albert Johnson <brennastutenroth@gmail.com>"
     message.body = """Dear User:
 his is your daily reminder to check your items' expiration dates at
