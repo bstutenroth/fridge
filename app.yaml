@@ -1,4 +1,4 @@
-application: my-fridge-174900
+application: fridge-175105
 version: 1
 runtime: python27
 api_version: 1
