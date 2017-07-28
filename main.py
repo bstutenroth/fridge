@@ -102,11 +102,27 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 
     def post(self):
         idtodelete=self.request.get("deletelist")
-        print idtodelete
-        foodtodelete=Food.query(Food.foodname == idtodelete).get()
-        print foodtodelete
-        foodtodelete.key.delete()
-        self.redirect('/')
+        deletetype=self.request.get('deletetype')
+        all_users = User.query().fetch()
+        food_list = Food.query().fetch()
+        if deletetype == 'consume':
+            current_user = str(users.get_current_user())
+            for usernames in all_users:
+                if current_user == usernames.email:
+                    usernames.consume += 1
+                    usernames.put()
+                    break
+        elif deletetype == 'expire':
+            current_user = str(users.get_current_user())
+            for usernames in all_users:
+                if current_user == usernames.email:
+                    usernames.expire += 1
+                    usernames.put()
+                    break
+                    foodtodelete=Food.query(Food.foodname == idtodelete).get()
+                print foodtodelete
+                foodtodelete.key.delete()
+                self.redirect('/')
 
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
@@ -138,22 +154,21 @@ class FridgeHandler(webapp2.RequestHandler):
         deletetype=self.request.get('deletetype')
         all_users = User.query().fetch()
         food_list = Food.query().fetch()
-        print all_users
         if deletetype == 'consume':
             current_user = str(users.get_current_user())
-            print current_user
             for usernames in all_users:
-                print 'testestest'
-                print usernames.email
                 if current_user == usernames.email:
                     usernames.consume += 1
                     usernames.put()
                     break
-
-        print 'hello'
-        print idtodelete
+        elif deletetype == 'expire':
+            current_user = str(users.get_current_user())
+            for usernames in all_users:
+                if current_user == usernames.email:
+                    usernames.expire += 1
+                    usernames.put()
+                    break
         foodtodelete=Food.query(Food.foodname == idtodelete).get()
-        print foodtodelete
         foodtodelete.key.delete()
         self.redirect('/')
 
