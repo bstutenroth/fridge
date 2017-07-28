@@ -9,16 +9,17 @@
 </head>
 <body>
   <div class="navCal">
-			<div id = "welcomeCal">Welcome {{ username.email }}</div><br>
+			<div id = "welcomeCal">Welcome {{ username }}</div><br>
 			<a href="/">Home</a>
 			<a href="/newfood">Add New Food</a>
 			<a method="get" href="/calendar">My Calendar</a>
 			<a id = "addPage" href="/myfridge">My Fridge</a>
 	</div>
-	<div id="counts">Expired: {{ count.expire }}
-		<br>
-		Consumed: {{ count.consume }}
 	<hr class = "white">
+	<div class="trash"><img id = "trashImg" src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-trash-128.png"><h3 id = "Expired"> {{ count.expire }}</h3>
+		<br>
+		<img id = "EatImg" src = "https://101clipart.com/wp-content/uploads/01/Bitten%20Apple%20Clipart%2016.png"><h3 id = "Consumed">{{ count.consume }}</h3>
+	</div>
 	<div id = "catOrganize">
 	<h2 class = "headCat">Meat</h2>
 	<div class = "shiftL">

@@ -168,6 +168,7 @@
 #riccardo{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   margin-left: 15%;
 }
 .buttons{
@@ -258,4 +259,24 @@ a{
   margin: 1%;
   border-style: solid;
   border-color: black;
+}
+.trash{
+  display: flex;
+  flex-wrap: wrap;
+  width: 10%;
+}
+.trash{
+  display: flex;
+  width: 10%;
+  height: 4%;
+}
+#trashImg{
+  height: 50%;
+  width: 50%;
+}
+#EatImg{
+  height: 40%;
+  width: 40%;
+  margin-left: 3%;
+  margin-right: 7%;
 }
