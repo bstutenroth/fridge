@@ -92,7 +92,6 @@ class NewFoodHandler(webapp2.RequestHandler):
 class ListofExpirationHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
-        all_users = User.query(User.email==user.nickname()).get()
         if user == None:
             greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
                             users.create_login_url('/'))
@@ -100,6 +99,7 @@ class ListofExpirationHandler(webapp2.RequestHandler):
             login_template = env.get_template('Login.html')
             self.response.out.write(login_template.render())
         else:
+            all_users = User.query(User.email==user.nickname()).get()
             current_user_food = []
             user = users.get_current_user()
             food_list = Food.query().fetch()
@@ -135,7 +135,6 @@ class ListofExpirationHandler(webapp2.RequestHandler):
 class FridgeHandler(webapp2.RequestHandler):
     def get (self):
         user = users.get_current_user()
-        all_users = User.query(User.email==user.nickname()).get()
         if user == None:
             greeting = ('<div id = "other_login" ><a href="%s">Sign in or register</a></div>' %
                             users.create_login_url('/'))
@@ -143,6 +142,7 @@ class FridgeHandler(webapp2.RequestHandler):
             login_template = env.get_template('Login.html')
             self.response.out.write(login_template.render())
         else:
+            all_users = User.query(User.email==user.nickname()).get()
             current_user_food = []
             food_list = Food.query().fetch()
             for fooditems in food_list:
