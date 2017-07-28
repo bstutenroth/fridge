@@ -23,10 +23,11 @@ class HomeHandler(webapp2.RequestHandler):
             all_users_query.get()
 
             if not all_users_query:
+                print 'a'
                 #we didn't get any matching users
             else:
                 #we found 'em
-
+                print 'b'
 
             all_users = all_users_query.fetch()
             for get_user in all_users:
